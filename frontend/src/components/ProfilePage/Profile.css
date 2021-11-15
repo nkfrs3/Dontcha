@@ -1,0 +1,232 @@
+.profile-banner {
+  margin: 0 auto;
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0E1ny93Ps15cfkpfHQVObfVhAomSoxR8tXw&usqp=CAU");
+  background-size: contain;
+  background-position: center;
+  max-width: 1350px;
+  height: 260px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  font-weight: 600;
+}
+.profile-banner * {
+  white-space: nowrap;
+}
+
+.profile-banner h1{
+  margin-left: 1em;
+}
+.profile-image {
+  font-size: 2.4em;
+  color: #A68A5B;
+  background-color: rgb(14, 12, 12);
+  padding: 3px 10px 0 10px;
+  margin:2px;
+
+}
+.count {
+  font-size: 1.75em;
+  font-weight: 800;
+}
+
+.profile-label{
+  margin: 0 20px 0 75px;
+  font-size: 1.5em;
+}
+
+
+.recent-activity {
+  text-align: center;
+  margin-top: 2em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: flex-start;
+  width: 1350px;
+  margin: 3em auto 5em auto;
+  min-height: 600px;
+
+}
+.recent-activity h3 {
+  padding: 35px 0;
+  display: block;
+  flex-basis: 100%;
+  height: 28px;
+  font-size: 16px;
+}
+
+.recent-activity h4 {
+  flex-basis: 50%;
+  border-bottom: 2px solid rgb(94, 94, 94);
+  height:fit-content;
+  min-width: 300px;
+  max-width: 300px;
+  padding: 10px 0 5px 0;
+}
+
+.recent-item {
+  font-size: 16px;
+  display:flex;
+  flex-direction: column;
+  text-align: left;
+  /* background-color: rgb(238, 232, 232); */
+  padding: 10px;
+}
+
+.edit-profile-btn {
+  color: #1A0A40;
+  letter-spacing: -0.5px;
+   margin-left: 15%;
+  cursor: pointer;
+
+}
+
+.edit-profile-btn:hover {
+  color:#6043a3;
+}
+
+.edit-profile-form {
+  position: absolute;
+  background-color: rgb(236, 227, 238);
+  width: 600px;
+  height: 300px;
+  top: 200px;
+  left: 50%;
+  margin-left: -300px;
+
+  display:flex;
+
+}
+
+.icons {
+  width: 100%;
+  font-size: 14px;
+}
+.edit-profile-form h3 {
+  text-align: center;
+  margin: 7px 0 10px 0;
+  padding: 5px;
+  font-size: 18px;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.icons span:hover {
+  opacity: 0.5;
+
+}
+.edit-profile-form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.icons span {
+  margin-left: 10px;
+  font-size: 3em;
+  background-color: #140733;
+  padding: 0 12px;
+  cursor: pointer;
+}
+
+.icons span:nth-child(2){
+  padding: 0 20px;
+}
+
+.colors-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.colors-container span {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid black;
+  cursor: pointer;
+}
+.colors-container span:hover {
+  opacity: .8;
+}
+.edit-profile-form button {
+ width: 80px;
+ margin-top: 14px;
+ align-self: center;
+ text-align: center;
+ padding: 2px 10px 2px 8px;
+ background-color: #1A0A40;
+ color: #fffddc;
+ cursor: pointer;
+}
+
+.edit-profile-form button:hover {
+  background-color: #482b8b;
+}
+
+.edit-profile-form .close {
+  position: absolute;
+  right: 8px;
+  top: 5px;
+}
+
+.edit-profile-form .close:hover {
+  color: tomato !important;
+}
+
+.delete-account {
+  position: absolute;
+  bottom: 3px;
+  left: 5px;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: -0.7px;
+  color:rgb(156, 32, 10);
+
+  cursor: pointer;
+}
+
+.delete-account:hover {
+  font-weight: 900;
+  color:rgb(238, 81, 53);
+}
+
+.delete-account-form{
+  position: absolute;
+  width: 550px;
+  height: 200px;
+  top: 90px;
+  left: 50%;
+  margin-left: -275px;
+  z-index: 999;
+  background-color: rgb(31, 31, 31);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: 10px;
+  padding: 1em;
+}
+.delete-account-form input {
+  width: 70%;
+  border-radius: 5px;
+  padding-left: 0.6em;
+}
+.delete-account-form button {
+  margin-top: auto;
+  margin-bottom: 1.5em;
+  align-self: center;
+  text-align: center;
+  padding: 0.4em 1.25em;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: tomato;
+  color:black;
+}
+
+.delete-account-form button:hover {
+  background-color: rgb(250, 64, 31);
+}

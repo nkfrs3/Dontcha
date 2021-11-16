@@ -13,4 +13,4 @@ Express Js / React
 
 # Database Schema
 
-![Database Schema]()
+![Database Schema](./assets/quiz-db.png)

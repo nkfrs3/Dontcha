@@ -19,6 +19,6 @@ Express Js / React
 
 # WireFrames
 
-![addQuestion](./assets/addquestion.png)
+![addQuestion](./assets/addquestion.PNG)
 ![createQuiz](./assets/createquiz.png)
-![take quiz](./assets/takeQuiz.png)
+![take quiz](./assets/takeQuiz.PNG)

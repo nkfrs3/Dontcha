@@ -7,9 +7,7 @@ import reviews from '../store/reviews'
 
 const rootReducer = combineReducers({
   session,
-  shops,
-  reviews,
-  // checkIns
+
 });
 
 let enhancer;

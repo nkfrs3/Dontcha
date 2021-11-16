@@ -16,3 +16,9 @@ Express Js / React
 # Database Schema
 
 ![Database Schema](./assets/quiz-db.png)
+
+# WireFrames
+
+![addQuestion](./assets/addquestion.png)
+![createQuiz](./assets/createquiz.png)
+![take quiz](./assets/takeQuiz.png)

@@ -30,10 +30,6 @@ module.exports = (sequelize, DataTypes) => {
     profileIcon: {
       type: DataTypes.STRING,
      },
-      profileColor: {
-        type: DataTypes.STRING,
-     },
-
   },
   {
     //must specify the scope when querying this model: User.scope('currentUser').findByPk(id)
@@ -54,25 +50,30 @@ module.exports = (sequelize, DataTypes) => {
     },
   );
   User.associate = function(models) {
-    // associations can be defined here
-    const columnMapping = {
-      through: 'Review',
-      otherKey: 'shopId',
-      foreignKey: 'userId'
+    // // associations can be defined here
+    // const columnMapping = {
+    //   through: 'Review',
+    //   otherKey: 'shopId',
+    //   foreignKey: 'userId'
 
-     }
-     const columnMappingCheckin = {
-      through: 'Checkin',
-      otherKey: 'shopId',
-      foreignKey: 'userId'
-     }
+    //  }
+    //  const columnMappingCheckin = {
+    //   through: 'Checkin',
+    //   otherKey: 'shopId',
+    //   foreignKey: 'userId'
+    //  }
+    User.hasMany(models.score, {foreignKey: "userId"})
+    User.hasMany(models.quiz, {foreignKey: "userId", onDelete: 'cascade', hooks:true})
+    User.hasMany(models.submittedAnswer, {foreignKey: "userId"})
+    User.hasMany(models.review, {foreignKey: "userId"} )
 
 
-    User.belongsToMany(models.Shop, columnMapping );
-    User.hasMany(models.Review, {foreignKey: 'userId', onDelete: 'cascade', hooks:true})
 
-    // User.belongsToMany(models.Shop, columnMappingCheckin );
-    User.hasMany(models.Checkin, {foreignKey: 'userId', onDelete: 'cascade', hooks:true})
+    // User.belongsToMany(models.Shop, columnMapping );
+    // User.hasMany(models.Review, {foreignKey: 'userId', onDelete: 'cascade', hooks:true})
+
+    // // User.belongsToMany(models.Shop, columnMappingCheckin );
+    // User.hasMany(models.Checkin, {foreignKey: 'userId', onDelete: 'cascade', hooks:true})
   };
 
 

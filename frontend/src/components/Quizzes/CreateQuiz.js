@@ -1,15 +1,15 @@
 import { useState, useRef } from "react"
 import Select from 'react-select'
 import './CreateQuiz.css'
-
+import CreateQuestions from "./CreateQuestions"
 
 const CreateQuiz = () => {
 
   const [quizToCreate, setQuizToCreate] = useState({})
   const [ quizName, setQuizName] = useState('');
   const [ topic, setTopic] = useState('');
-  const [errors, setErrors] = useState([])
-  const currentQuiz = useRef({})
+
+  const [currentQuiz, setCurrentQuiz] = useState(null)
 
   const options = [
     { value: 'movies', label: 'Movies' },
@@ -24,9 +24,11 @@ const CreateQuiz = () => {
 
       if (quizName && topic){
         console.log('submitting')
-        currentQuiz.current.title = quizName;
-        currentQuiz.current.topic = topic;
-        console.log(currentQuiz.current)
+        const newQuiz = {title: quizName,
+        topic
+        }
+        setCurrentQuiz(newQuiz)
+        console.log(currentQuiz)
         setQuizName('');
         setTopic('');
       }else if( !quizName.length) {
@@ -37,16 +39,12 @@ const CreateQuiz = () => {
 
   }
 
-  const clearErrors = () => {
-    if (errors.length && !currentQuiz.title){
-      setErrors([])
-    }
-  }
+
   return (
 
     <div className='create-quiz-page'>
 
-     { !currentQuiz.current.title && !currentQuiz.current.topic &&
+     { true &&
       <>
       <button className='top' onClick={handleSubmit}>Create</button>
       <div className="create-quiz-form">
@@ -68,9 +66,11 @@ const CreateQuiz = () => {
         </ label >
         </div>
         </>
-  }
+    }
 
-      <CreateQuestions quiz={currentQuiz.current} />
+     { !!currentQuiz.title?.length &&
+     <CreateQuestions quiz={currentQuiz} />
+     }
 
 
     </div>

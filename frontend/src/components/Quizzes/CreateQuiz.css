@@ -42,10 +42,3 @@
   border-radius: 5px;
   padding-left: 0.5rem;
 }
-
-.errors {
-  background-color: red;
-  position: absolute;
-  width: 500px;
-  height: 500px;
-}

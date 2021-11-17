@@ -15,7 +15,11 @@ module.exports = {
       quizId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: { model: 'quizzes', key: 'id' }
+        references: { model: 'quizzes', key: 'id' },
+      },
+        type: {
+          type: Sequelize.STRING,
+          allowNull: false
       },
       createdAt: {
         allowNull: false,

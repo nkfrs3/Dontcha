@@ -1,16 +1,16 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const question = sequelize.define('question', {
-    value: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
     quizId: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
     prompt: {
       type: DataTypes.BOOLEAN,
+      allowNull: false
+    },
+    type: {
+      type: DataTypes.STRING,
       allowNull: false
     }
   }, {});

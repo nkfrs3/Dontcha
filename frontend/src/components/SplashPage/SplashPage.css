@@ -1,0 +1,17 @@
+.splash-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.splash-page section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.splash-page form {
+  display: flex;
+  flex-direction: column;
+
+}

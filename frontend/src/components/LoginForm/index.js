@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import './LoginForm.css';
 import { login } from '../../store/session';
-
+import './LoginForm.css'
 
 
   const LoginForm = ({setShowLogin}) => {
@@ -15,7 +15,7 @@ import { login } from '../../store/session';
   // const sessionUser = useSelector(state => state.session.user);
   const updateEmail = e => setEmail(e.target.value);
   const updatePassword = e => setPassword(e.target.value)
-  const handleClose = e => {e.preventDefault(); setShowLogin(false)};
+  // const handleClose = e => {e.preventDefault(); setShowLogin(false)};
 
    useEffect(() => {
       setLoginErrors("");
@@ -36,8 +36,8 @@ import { login } from '../../store/session';
     const user = await dispatch(login(payload));
     // console.log(user)
     if (typeof user === 'object'){
-      setShowLogin(false);
-      <Redirect to="/" />
+      // setShowLogin(false);
+      <Redirect to="/quizzes" />
     }else {
       setLoginErrors(user);
     }
@@ -49,9 +49,9 @@ import { login } from '../../store/session';
     <form onSubmit={handleSubmit} className="login user-form" onClick={e =>e.stopPropagation() }>
       <div className='form-title'>
         <h2>Log In</h2>
-        <button className='close' onClick={handleClose}>
+        {/* <button className='close' onClick={handleClose}>
         <i class="far fa-times-circle"></i>
-        </button>
+        </button> */}
     { loginErrors.length > 0 && <p className='login-errors'>{loginErrors}</p>}
       </div>
       <label>

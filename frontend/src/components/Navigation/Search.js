@@ -39,7 +39,7 @@ const Search = () => {
     <form className='search-bar' autoComplete="off">
       <input type="search"  placeholder='search' value={term} onChange={handleSearch} onClick={()=> {setShowSearch(true); setResults([])}}/>
       {results.length > 0 && showSearch && <ul className='search-results'>
-        { results.map(shop => <div onClick={(e) => history.push(`/shops/${shop.id}`)}>{shop.name}, {shop.city}</div>)}
+        {/* { results.map() }</div>) }  */}
       </ul>
      }
     </form>

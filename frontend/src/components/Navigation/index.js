@@ -1,30 +1,17 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import LoginForm from "../LoginForm";
-import SignUpForm from "../SignupFormPage";
 import ProfileButton from "./ProfileButton";
 import { NavLink } from "react-router-dom";
 import { signUp } from "../../store/session";
 import Search from "./Search";
+import './navigation.css'
 
 
 const Navigation = ({isLoaded}) => {
-  const [showLogin, setShowLogin] = useState(false);
-  const [showSignUp, setShowSignUp] = useState(false)
-  // const [demoCount, setDemoCount] = useState(0);
+
   const dispatch = useDispatch();
-  useEffect(() => {
-    if (!showLogin && !showSignUp) return;
 
-    const closeModal = () => {
-      setShowLogin(false);
-      setShowSignUp(false);
-    };
 
-    document.addEventListener('click', closeModal);
-
-    return () => document.removeEventListener("click", closeModal);
-  }, [showLogin, showSignUp]);
 
   const currentUser = useSelector(state => state.session.user);
 
@@ -37,24 +24,15 @@ const Navigation = ({isLoaded}) => {
 
   return (
     <div className="nav-bar">
-      <NavLink to="/" className='app-title' activeClassName="home">Enlite</NavLink>
-    { ! showLogin && !showSignUp && <Search/>}
-      { !showLogin && !showSignUp &&  <NavLink to="/shops" className='nav-link link-to-shops' activeClassName="at-shops">Shops</NavLink> }
+      <NavLink to="/" className='app-title' activeClassName="home">Dontcha Know</NavLink>
 
-      {!showLogin && <h2 className='welcome'>{currentUser?.username}</h2>}
-      { isLoaded && !showLogin && !showSignUp && !currentUser &&
-      <div>
-      <span className='demo nav-link' onMouseUp={handleDemo} >Demo</span>
-      <span className="nav-link" onMouseUp={e => setShowLogin(!showLogin)}>Login</span>
-      <span className="nav-link" onMouseUp={e => setShowSignUp(true)}>Sign Up</span>
-      </div>
+      { currentUser &&
+      <NavLink to='/create' activeClassName="home">create</NavLink>
       }
+      {currentUser && <h2 className='welcome'>{currentUser?.username}</h2>}
 
-      {/* { isLoaded && !showLogin && !showSignUp && !currentUser && <span className="nav-link" onMouseUp={e => setShowLogin(!showLogin)}>Login</span>} */}
-      {showLogin && <LoginForm setShowLogin={setShowLogin}/> }
-      {/* { isLoaded && !showSignUp && !currentUser && <span className="nav-link" onMouseUp={e => setShowSignUp(true)}>Sign Up</span> } */}
+    {!currentUser && <span className='demo nav-link' onMouseUp={handleDemo} >Demo</span>}
 
-      {showSignUp && <SignUpForm setShowSignUp={setShowSignUp} />}
       {currentUser && <ProfileButton user={currentUser}/>}
     </div>
   )

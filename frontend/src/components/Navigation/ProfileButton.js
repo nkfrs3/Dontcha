@@ -2,7 +2,7 @@ import React, { useState, useEffect} from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { demoLogout, logout } from "../../store/session";
-import './ProfileButton.css'
+import './navigation.css'
 
 const ProfileButton = ({user}) => {
   const dispatch = useDispatch();

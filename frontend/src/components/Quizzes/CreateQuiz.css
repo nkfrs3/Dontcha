@@ -42,3 +42,36 @@
   border-radius: 5px;
   padding-left: 0.5rem;
 }
+
+.side-bar {
+  background-color: #8f77ac;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 100%;
+}
+
+.create-question-container {
+  height: 100vh;
+  position: relative;
+}
+
+span.x {
+  align-self: flex-start;
+}
+span.plus {
+  align-self: flex-end;
+  position: relative;
+}
+
+.question-hover {
+  position:absolute;
+  right: -2.5rem;
+  top: -15px;
+  background-color: black;
+  opacity: 75%;
+  border-radius: 15px;
+  color: white;
+  padding: 5px 10px;
+  white-space: nowrap;
+}

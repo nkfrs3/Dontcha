@@ -5,11 +5,11 @@ import CreateQuestions from "./CreateQuestions"
 
 const CreateQuiz = () => {
 
-  const [quizToCreate, setQuizToCreate] = useState({})
+  // const [quizToCreate, setQuizToCreate] = useState({})
   const [ quizName, setQuizName] = useState('');
   const [ topic, setTopic] = useState('');
 
-  const [currentQuiz, setCurrentQuiz] = useState(null)
+  const [currentQuiz, setCurrentQuiz] = useState({})
 
   const options = [
     { value: 'movies', label: 'Movies' },
@@ -44,7 +44,7 @@ const CreateQuiz = () => {
 
     <div className='create-quiz-page'>
 
-     { true &&
+     { !currentQuiz?.title &&
       <>
       <button className='top' onClick={handleSubmit}>Create</button>
       <div className="create-quiz-form">
@@ -69,7 +69,7 @@ const CreateQuiz = () => {
     }
 
      { !!currentQuiz.title?.length &&
-     <CreateQuestions quiz={currentQuiz} />
+     <CreateQuestions quiz={currentQuiz} setCurrentQuiz={setCurrentQuiz}/>
      }
 
 

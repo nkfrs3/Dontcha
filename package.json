@@ -14,13 +14,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nkfrs3/untapped.git"
+    "url": "git+https://dontchaknow.herokuapp.com/"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/nkfrs3/untapped/issues"
+    "url": "https://dontchaknow.herokuapp.com/"
   },
-  "homepage": "https://github.com/nkfrs3/untapped#readme"
+  "homepage": "https://dontchaknow.herokuapp.com/"
 }

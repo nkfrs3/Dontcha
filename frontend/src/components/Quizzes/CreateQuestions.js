@@ -1,17 +1,38 @@
-import React from 'react'
+import React, { useState } from 'react'
+import './CreateQuiz.css'
 
-const CreateQuestions = ({quiz}) => {
+const CreateQuestions = ({quiz, setCurrentQuiz}) => {
+  const [create, setShowCreate] = useState(false)
+  const [newQuestions, setNewQuestions] = useState({})
+  const [showTypes, setShowTypes] = useState(false)
 
-const clearQuiz = () => {
-  quiz['title'] = "";
-  quiz['topic']= "";
-}
+  const handleRemove = () => {
+    setCurrentQuiz({})
+  }
+
+  const handleShow= () => {
+    setShowCreate(true)
+  }
+  const handleHide= () => {
+    setShowCreate(false)
+  }
 
   return (
-    <div>
+    <div className="create-question-container">
       <div className="side-bar">
-        {quiz.title}
-        {<span onClick={clearQuiz}>X</span>  }
+      {<span className="x" onClick={handleRemove}>X</span> }
+        <span className="plus"
+          onMouseOver={handleShow}
+          onMouseLeave={handleHide}
+        ><i class="fas fa-plus"></i>
+         { create && <>
+         <span className="arrow-left"></span><span className="question-hover">add question</span> </>}
+        </span>
+
+
+
+        {quiz.title} {quiz.topic}
+
       </div>
     </div>
   )

@@ -22,7 +22,7 @@
   font-weight: 900;
 }
 
-.add-answers-container input {
+.question-prompt-input {
   border: none;
   background-color:#f9f5ff;
   height: 70px;
@@ -32,7 +32,7 @@
   margin-bottom: 3rem;
 }
 
-.add-answers-container input:focus {
+.question-prompt-input  {
   background-color:#faf7fd;
   border: none;
   outline: none;
@@ -56,20 +56,41 @@
   background-color: rgb(78, 76, 78);
 }
 
+.answers-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
 .individual-answer {
   display: flex;
   gap: 1rem;
-  margin-left: 10px;
   background-color: white;
+  padding: 15px 5px;
+  position: relative;
 }
 
 .add-answer-btn {
   margin-top: 0.5rem;
   margin-left: 0.8rem;
   cursor: pointer;
+  width: 100px;
 }
 
 .add-answer-btn:hover {
   color: rgb(11, 11, 199);
   text-decoration: underline;
+}
+
+.individual-answer input {
+  width: 100%;
+  outline: none;
+  border: none;
+}
+
+.remove-answer {
+  position: absolute;
+  cursor: pointer;
+  right: -7px;
+  font-size: 1.3rem;
+  color: rgb(51, 51, 51);
 }

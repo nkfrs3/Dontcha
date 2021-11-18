@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-const Question = ({question, i, setNewQuestions, setCurrentQuestion}) => {
+const Question = ({question, i, setNewQuestions, setCurrentQuestionIndex, setShowAddAnswers}) => {
 
 
   const [showModal, setShowModal] = useState(false)
@@ -20,21 +20,21 @@ const Question = ({question, i, setNewQuestions, setCurrentQuestion}) => {
 
   const handleSetQ = () => {
     question.index = i;
-    setCurrentQuestion(question)
+    setCurrentQuestionIndex(i)
     console.log(question)
   }
 
   return (
     <>
-    <div className ='questions-added' onClick={handleSetQ}>
+    <div className ='questions-added' onClick={handleSetQ} >
       <div className ="type-counter">
         <span>
         <i className={logo[question.type]}></i>
         </span>
-        <span>{i}</span>
+        <span>{i + 1}</span>
       </div>
 
-      <p>{ question.prompt ? question.prompt : "New Question."}</p>
+      <p>{ question.prompt ? question.prompt.slice(0, 33) + '...' : "New Question"}</p>
 
       {/* <span className='add-answers-button'>add answers</span> */}
       <span className='elipsis' onClick={e => showRemove(e)}><i class="fas fa-ellipsis-v"></i></span>

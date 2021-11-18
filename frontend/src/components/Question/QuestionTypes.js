@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import './SideBar.css'
-const QuestionTypes = ({setShowTypes, setType, showTypes, setNewQuestions}) => {
+const QuestionTypes = ({setShowTypes, setType, showTypes, setNewQuestions, newQuestions}) => {
 
   useEffect(() => {
     const closeModal = () => {
@@ -13,7 +13,11 @@ const QuestionTypes = ({setShowTypes, setType, showTypes, setNewQuestions}) => {
   }, []);
 
   const addQuestion = (type) => {
-    const newQ = {prompt: "", type}
+    if (newQuestions.length >= 10){
+      window.alert("sorry, no more than 10 questions aloud")
+      return;
+    }
+    const newQ = {prompt: "", type, answers: [{value: "", correct: false}]}
     setNewQuestions(prev => [...prev, newQ])
     console.log('adding question', newQ);
     setShowTypes(false)

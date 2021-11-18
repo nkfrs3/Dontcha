@@ -1,13 +1,12 @@
 .create-quiz-page {
-  position: relative;
-  display: flex;
-  flex-direction: column;
   width: 100%;
   height: 100%;
+  position: relative;
 }
 .create-quiz-page button.top {
   width: 5rem;
-  align-self: flex-end;
+  margin-left: 90%;
+  margin-bottom: 5px;
   margin-right: 2rem;
   border: none;
   background-color: #b49bd1;
@@ -54,24 +53,57 @@
 .create-question-container {
   height: 100vh;
   position: relative;
+  display: inline-block;
 }
 
 span.x {
   align-self: flex-start;
+  font-size: 0.8rem;
+  padding-left: 0.35rem;
+  cursor: pointer;
 }
 span.plus {
   align-self: flex-end;
   position: relative;
+  background-color: #e3d8f0;
+  padding: 2px 7px;
+  margin-left: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #1e1b22;
 }
-
+span.plus:hover {
+  background-color: #e3dfeb;
+}
 .question-hover {
   position:absolute;
-  right: -2.5rem;
-  top: -15px;
+  right: -5.5rem;
+  top: -23px;
   background-color: black;
   opacity: 75%;
   border-radius: 15px;
   color: white;
   padding: 5px 10px;
   white-space: nowrap;
+}
+
+.title-topic {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  background-color: #554666;
+  color: #f8f8f8;
+}
+
+.title-topic h2 {
+  font-size: 1rem;
+  margin-right: 10px;
+}
+
+.title-topic p {
+  align-self: flex-end;
+  font-size: 0.8rem;
+  margin-bottom: 5px;
+  white-space: nowrap;
+  margin-right: auto;
 }

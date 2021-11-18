@@ -4,15 +4,17 @@ const AddAnswers = ({currentQuestion, setCurrentQuestion}) => {
 // const [prompt, setPrompt] = useState(currentQuestion.prompt)
 
 const handleChange = (e) => {
-
     // console.log(e.target.value)
     // setPrompt(e.target.value)
-    setCurrentQuestion(prev => {
-    const newState = { ...prev }
-    console.log(prev)
-    return newState.prompt = e.target.value;
 
-    })
+    setCurrentQuestion(prev =>  e.target.value )
+
+    // setCurrentQuestion(prev => {
+    // const newState = { ...prev }
+    // console.log(prev)
+    // return newState.prompt = e.target.value;
+
+    // })
   }
 
   return (
@@ -24,7 +26,6 @@ const handleChange = (e) => {
       onChange={e => handleChange(e)}
       >
       </input>
-      {currentQuestion.prompt}
     </div>
   )
 }

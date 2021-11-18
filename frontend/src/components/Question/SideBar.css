@@ -8,6 +8,7 @@
   height: 270px;
   border-radius: 9px;
   padding: 5px;
+  z-index: 5;
 
 }
 .types-modal h2 {
@@ -27,7 +28,7 @@
   width: 260px;
   margin: 0 auto 1rem auto;
 }
-.types-modal span {
+.types-modal span.each-type {
   display: flex;
   padding: 0.6rem 2.5rem;
   justify-content: space-between;
@@ -44,4 +45,85 @@
   width: 30px;
   height: 30px;
   border-radius: 6px;
+}
+
+.new-questions-column {
+  margin-top: 2rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  overflow-y: auto;
+  overflow-x: visible !important;
+}
+
+.questions-added {
+  background-color:  rgb(241, 235, 235);
+  position: relative;
+  padding: 1rem 0.75rem;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  gap: 10px;
+}
+.questions-added:hover{
+  background-color: #b7b2bd;
+}
+.questions-added p {
+  font-size: 0.8rem;
+}
+.type-counter {
+  background-color: cyan;
+  width: fit-content;
+  border-radius: 5px;
+  padding: 4px 7px;
+  font-size: 12px;
+}
+.type-counter span:first-child{
+  padding-right: 0.55rem;
+}
+
+.type-counter span:last-child {
+
+}
+
+.elipsis {
+  margin-left: auto;
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+.remove-question-modal {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  top: 100px;
+  left: 270px;
+  width: 155px;
+  border-radius: 7px;
+  height: 125px;
+  background-color: rgb(245, 240, 240);
+  box-shadow: 5px 5px 4px rgb(77, 77, 77), -2px 3px 3px rgb(77, 77, 77);
+  z-index: 5;
+  padding: 15px 5px;
+
+}
+
+.remove-question-modal h3 {
+  font-size: 0.9rem;
+
+}
+
+.remove-question-modal div {
+  color: rgb(197, 83, 48);
+  margin-bottom: 2rem;
+  cursor: pointer;
+  padding: 5px;
+  text-align: left;
+  text-indent: 0.7rem;
+}
+
+.remove-question-modal div:hover {
+  background-color: rgb(212, 211, 211);
 }

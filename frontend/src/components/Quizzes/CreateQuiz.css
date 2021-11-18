@@ -1,13 +1,12 @@
 .create-quiz-page {
-  position: relative;
-  display: flex;
-  flex-direction: column;
   width: 100%;
   height: 100%;
+  position: relative;
 }
 .create-quiz-page button.top {
   width: 5rem;
-  align-self: flex-end;
+  margin-left: 90%;
+  margin-bottom: 5px;
   margin-right: 2rem;
   border: none;
   background-color: #b49bd1;
@@ -54,6 +53,7 @@
 .create-question-container {
   height: 100vh;
   position: relative;
+  display: inline-block;
 }
 
 span.x {
@@ -92,7 +92,7 @@ span.plus:hover {
   justify-content: space-between;
   padding: 0.5rem;
   background-color: #554666;
-  color: #e9e5ec;
+  color: #f8f8f8;
 }
 
 .title-topic h2 {

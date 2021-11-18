@@ -1,0 +1,14 @@
+.add-answers-container {
+  background-color:#f9f5ff;
+  /* width: 100%; */
+  display: inline-block;
+  z-index: 9;
+}
+
+.add-answers-button {
+  font-size: 13px;
+  align-self: flex-end;
+  margin-left: auto;
+  letter-spacing: -0.5px;
+  font-weight: 900;
+}

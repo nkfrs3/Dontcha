@@ -1,0 +1,47 @@
+.types-modal {
+  background-color: #f2ecf8;
+  position: absolute;
+  text-align: center;
+  left: 270px;
+  top: -10px;
+  width: 275px;
+  height: 270px;
+  border-radius: 9px;
+  padding: 5px;
+
+}
+.types-modal h2 {
+  font-size: 1rem;
+}
+.topic-options  {
+  text-align: center;
+  list-style: none;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.line {
+  border-bottom: 1px solid black;
+  height: 5px;
+  width: 260px;
+  margin: 0 auto 1rem auto;
+}
+.types-modal span {
+  display: flex;
+  padding: 0.6rem 2.5rem;
+  justify-content: space-between;
+
+}
+.types-modal span:hover{
+  background-color: rgb(255, 255, 255);
+}
+
+.type-icon {
+  display: inline-block;
+  background-color: rgb(203, 226, 200);
+  font-size: 1.3rem;
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+}

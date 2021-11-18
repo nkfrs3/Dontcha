@@ -1,7 +1,7 @@
 import { useState, useRef } from "react"
 import Select from 'react-select'
 import './CreateQuiz.css'
-import CreateQuestions from "./CreateQuestions"
+import CreateQuestions from "../Question/CreateQuestions"
 
 const CreateQuiz = () => {
 
@@ -60,6 +60,7 @@ const CreateQuiz = () => {
           <input type='text'
           placeholder="quiz name"
           value={quizName}
+          maxlength="33"
           required
           onChange={e => setQuizName(e.target.value)}
           ></input>

@@ -46,14 +46,20 @@
   background-color: #8f77ac;
   display: flex;
   flex-direction: column;
+  grid-column: 1/2;
+  grid-row: 1/7;
   width: 300px;
   height: 100%;
+  border-right: 1px solid rgb(158, 158, 158);
 }
 
 .create-question-container {
   height: 100vh;
+  width: 100%;
   position: relative;
-  display: inline-block;
+  display: grid;
+  grid-template-columns: 300px 1fr 300px;
+  grid-template-rows: repeat(6, 1fr);
 }
 
 span.x {
@@ -71,6 +77,7 @@ span.plus {
   border-radius: 5px;
   cursor: pointer;
   color: #1e1b22;
+  z-index: 9;
 }
 span.plus:hover {
   background-color: #e3dfeb;

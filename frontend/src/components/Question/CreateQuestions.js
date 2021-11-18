@@ -8,7 +8,7 @@ import AddAnswers from './AddAnswers'
 const CreateQuestions = ({quiz, setCurrentQuiz}) => {
   const [create, setShowCreate] = useState(false)
   const [newQuestions, setNewQuestions] = useState([{prompt: "", type:"mc"},{prompt: "", type:"mc"}])
-  const [currentQuestion, setCurrentQuestion] = useState({})
+  let [currentQuestion, setCurrentQuestion] = useState(null)
   const [showTypes, setShowTypes] = useState(false)
   const [type, setType] = useState("mc") // this state should belong to the QuestionTypes.js component
 
@@ -49,18 +49,26 @@ const CreateQuestions = ({quiz, setCurrentQuiz}) => {
       }
       <div className="new-questions-column">
         {newQuestions.map( (question, i) =>
-          <Question question={question} i={i} setNewQuestions={setNewQuestions} setCurrentQuestion={setCurrentQuestion}/>
+          <Question question={question} i={i} setNewQuestions={setNewQuestions} setCurrentQuestion={setCurrentQuestion} currentQuestion={currentQuestion}/>
 
           )}
       </div>
 
       </div>
+      {currentQuestion &&
 
-    </div>
-       {currentQuestion &&
-        <AddAnswers currentQuestion={currentQuestion} setCurrentQuestion={setCurrentQuestion}/>
-
+        <AddAnswers
+        newQuestions={newQuestions}
+        setNewQuestions={setNewQuestions}
+        currentQuestion={currentQuestion}
+        setCurrentQuestion={setCurrentQuestion}/>
       }
+
+      <button className='publish'>publish</button>
+     </div>
+
+
+
       </>
   )
 }

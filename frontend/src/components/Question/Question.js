@@ -19,6 +19,7 @@ const Question = ({question, i, setNewQuestions, setCurrentQuestion}) => {
   }
 
   const handleSetQ = () => {
+    question.index = i;
     setCurrentQuestion(question)
     console.log(question)
   }
@@ -32,6 +33,7 @@ const Question = ({question, i, setNewQuestions, setCurrentQuestion}) => {
         </span>
         <span>{i}</span>
       </div>
+
       <p>{ question.prompt ? question.prompt : "New Question."}</p>
 
       {/* <span className='add-answers-button'>add answers</span> */}

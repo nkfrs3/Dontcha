@@ -8,7 +8,7 @@
   height: 270px;
   border-radius: 9px;
   padding: 5px;
-  z-index: 5;
+  z-index: 10;
 
 }
 .types-modal h2 {
@@ -105,7 +105,7 @@
   height: 125px;
   background-color: rgb(245, 240, 240);
   box-shadow: 5px 5px 4px rgb(77, 77, 77), -2px 3px 3px rgb(77, 77, 77);
-  z-index: 5;
+  z-index: 10;
   padding: 15px 5px;
 
 }
@@ -126,4 +126,13 @@
 
 .remove-question-modal div:hover {
   background-color: rgb(212, 211, 211);
+}
+
+.num {
+position: absolute;
+right: 23px;
+top: 15px;
+font-weight: 700;
+color: rgb(102, 102, 102);
+font-size: 1.5rem;
 }

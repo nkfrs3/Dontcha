@@ -1,31 +1,45 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import './AddAnswers.css'
-const AddAnswers = ({currentQuestion, setCurrentQuestion}) => {
-// const [prompt, setPrompt] = useState(currentQuestion.prompt)
+
+const AddAnswers = ({currentQuestion, setCurrentQuestion, setNewQuestions, newQuestions}) => {
+  // let [prompt, setPrompt] = useState(currentQuestion.prompt);
+  let [answers, setAnswers] = useState([{value: "", correct: false} ])
+  const letters = ['A', 'B', 'C', 'D', 'E', 'F'];
+  useEffect(()=> {
+    console.log(currentQuestion, newQuestions)
+  }, [])
 
 const handleChange = (e) => {
-    // console.log(e.target.value)
     // setPrompt(e.target.value)
 
-    setCurrentQuestion(prev =>  e.target.value )
-
-    // setCurrentQuestion(prev => {
-    // const newState = { ...prev }
-    // console.log(prev)
-    // return newState.prompt = e.target.value;
-
-    // })
+    setNewQuestions(prev => {
+        let newState = [...prev]
+        newState[currentQuestion.index].prompt = e.target.value;
+        return newState
+         }
+      )
   }
 
   return (
     <div className='add-answers-container'>
-      Helllo from answers
-
+      <span className='num'>#{currentQuestion.index + 1}</span>
       <input
-      value={currentQuestion?.prompt}
+      placeholder='New Question'
+      required
+      value={newQuestions[currentQuestion.index].prompt}
       onChange={e => handleChange(e)}
       >
       </input>
+
+      <div className='answers-container'>
+     { answers.map( (answer, i) =>
+     <div className='individual-answer'>
+      <span>{letters[i]}</span>
+      <div>{answer.value ? answer.value : "option"}</div>
+      </div>
+     )}
+      </div>
+      <span className='add-answer-btn'>add choice</span>
     </div>
   )
 }

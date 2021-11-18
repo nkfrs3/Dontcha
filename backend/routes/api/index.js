@@ -4,12 +4,17 @@ const { setTokenCookie } = require('../../utils/auth.js');
 const { User } = require('../../db/models');
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
-// const shopsRouter = require('./shops.js');
-// const reviewsRouter = require('./reviews.js')
+const quizzesRouter = require('./quizzes.js');
+const questionsRouter = require('./questions.js');
+const answersRouter = require('./answers.js')
 // const searchRouter = require('./search')
 // const checkinRouter = require('./checkins');
 router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
+router.use('/quizzes', quizzesRouter);
+router.use('/questions', questionsRouter);
+router.use('/answers', answersRouter);
+// router.use('/', )
 // router.use('/shops', shopsRouter);
 // router.use('/reviews', reviewsRouter);
 // router.use('/search', searchRouter);

@@ -1,0 +1,77 @@
+.create-quiz-page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+.create-quiz-page button.top {
+  width: 5rem;
+  align-self: flex-end;
+  margin-right: 2rem;
+  border: none;
+  background-color: #b49bd1;
+  color: #fefeff;
+  font-weight: 800;
+
+}
+.create-quiz-page button.top:hover {
+  background-color: #8f77ac;
+}
+.topics-menu {
+  width: 300px;
+  flex: 0 1 400px;
+  min-width: 300px;
+}
+
+.create-quiz-form {
+  display: flex;
+  background-color: blue;
+  padding: 1rem 10px 1rem 10px;
+  align-items: center;
+  gap: 0.75rem;
+}
+.quiz-name-label {
+  flex: 1 0 500px;
+
+}
+
+.quiz-name-label input {
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  padding-left: 0.5rem;
+}
+
+.side-bar {
+  background-color: #8f77ac;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 100%;
+}
+
+.create-question-container {
+  height: 100vh;
+  position: relative;
+}
+
+span.x {
+  align-self: flex-start;
+}
+span.plus {
+  align-self: flex-end;
+  position: relative;
+}
+
+.question-hover {
+  position:absolute;
+  right: -2.5rem;
+  top: -15px;
+  background-color: black;
+  opacity: 75%;
+  border-radius: 15px;
+  color: white;
+  padding: 5px 10px;
+  white-space: nowrap;
+}

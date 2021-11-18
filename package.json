@@ -1,7 +1,7 @@
 {
   "name": "authenticate-me",
   "version": "1.0.0",
-  "description": "",
+  "description": "# Features - 'Dontcha Know' is a web application that allows users to participate in user created quizzes. As well as create their own. A quiz will be allowed to be custom made allowing the creator to specify an alloted time per question, as well as an alloted time per quiz. The quizes will allow for multiple choice, match the term, and true or false.",
   "main": "index.js",
   "scripts": {
     "heroku-postbuild": "npm run build --prefix frontend",
@@ -14,13 +14,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nkfrs3/untapped.git"
+    "url": "git+https://dontchaknow.herokuapp.com/"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/nkfrs3/untapped/issues"
+    "url": "https://dontchaknow.herokuapp.com/"
   },
-  "homepage": "https://github.com/nkfrs3/untapped#readme"
+  "homepage": "https://dontchaknow.herokuapp.com/"
 }

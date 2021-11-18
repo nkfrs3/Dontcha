@@ -25,7 +25,7 @@ const SignUpForm = ({setShowSignUp}) => {
       } else {
         const res = await dispatch(signUp(formData));
         if (res.id){
-          setShowSignUp(false);
+          // setShowSignUp(false);
         }
         else {
           console.log('sign-up error');
@@ -39,7 +39,7 @@ const SignUpForm = ({setShowSignUp}) => {
     <form onSubmit={handleSubmit} className="sign-up user-form" onClick={e => e.stopPropagation() }>
       <div className='form-title' >
         <h2>Sign Up</h2>
-        <span className='close' onClick={handleClose}><i class="far fa-times-circle"></i></span>
+        {/* <span className='close' onClick={handleClose}><i class="far fa-times-circle"></i></span> */}
     { validationErrors.map(err => <p className='err'>{err}</p>)}
       </div>
       <label>

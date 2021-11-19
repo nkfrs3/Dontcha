@@ -1,6 +1,6 @@
 .add-answers-container {
   background-color:#f9f5ff;
-  margin-top: 2rem;
+  margin-top: 1rem;
   /* width: 100%; */
   grid-column: 2/3;
   grid-row: 1/6;
@@ -92,8 +92,11 @@
 }
 .add-answers-container p{
   margin-left: 100px;
-  margin-top: -11px;
+  margin-top: 20px;
+  position: absolute;
   font-size: 0.75rem;
+  display: inline-block;
+
 }
 
 .individual-answer span {
@@ -113,9 +116,14 @@
 
 .correct-menu {
   top: 5px;
-  right: -1.5rem;
+  left: 1rem;
   max-width: 70px;
   width: 20%;
   position: absolute;
   align-self: flex-start;
 }
+
+/* .c-box {
+  position: absolute;
+
+} */

@@ -78,12 +78,12 @@
   border-radius: 5px;
   padding: 4px 7px;
   font-size: 12px;
+  box-shadow: 2.5px 2px 2.5px black;
 }
 .type-counter span:first-child{
   padding-right: 0.55rem;
 }
-
-.type-counter span:last-child {
+.type-counter span:first-child{
 
 }
 

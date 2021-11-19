@@ -13,14 +13,12 @@ const AddAnswers = ({questionIndex, setNewQuestions, newQuestions}) => {
 
 
   useEffect(()=> {
-    console.log(questionIndex, newQuestions)
     const arr = [];
     for (let i = 0; i <  newQuestions[questionIndex].answers.length; i++){
       arr.push({ value: letters[i].toLowerCase(), label: letters[i]})
-      console.log(arr)
     }
     setOptions(arr)
-  }, [questionIndex, newQuestions[questionIndex]['answers']], count)
+  }, [questionIndex, count])
 
 const handleChange = (e) => {
     // setPrompt(e.target.value)
@@ -46,7 +44,6 @@ const handleChange = (e) => {
 
   const addAnswer = (e) => {
     e.stopPropagation()
-    console.log("ADDDING")
     if (newQuestions[questionIndex].answers.length >=6) {
       return;
     }
@@ -55,7 +52,6 @@ const handleChange = (e) => {
     c[questionIndex].answers.push({value: "", correct: false})
 
     setNewQuestions(c)
-    setCount(i => i+ 1)
   }
 
   const removeAnswer = (i) => {
@@ -66,14 +62,24 @@ const handleChange = (e) => {
   }
 
   const handleCorrect = (e) => {
-    console.log(e.value, "!!!!!!")
     setCorrectAnswer(e.value);
+    let index = (letters.indexOf(e.value.toUpperCase()))
+    if (index !== -1) {
+      let copy = [...newQuestions];
+      copy[questionIndex]['answers'].map(ans => ans.correct = false)
+      copy[questionIndex]['answers'][index]['correct'] = true;
+      setNewQuestions(copy)
+      // console.log(copy[questionIndex]['answers'][index]['correct'])
+    }
+
   }
 
   return (
     <div className='add-answers-container'>
       <span className='num'>#{questionIndex + 1}</span>
       <div style={{display: 'none'}}>{count}</div>
+
+
       <Select
         className="correct-menu"
         options={options}
@@ -81,13 +87,13 @@ const handleChange = (e) => {
         onChange={e => handleCorrect(e)}
           />
           <p>correct answer</p>
-      <input
-      className='question-prompt-input'
-      placeholder='New Question...'
-      required
-      value={newQuestions[questionIndex].prompt}
-      onChange={e => handleChange(e)}
-      >
+        <input
+        className='question-prompt-input'
+        placeholder='New Question...'
+        required
+        value={newQuestions[questionIndex].prompt}
+        onChange={e => handleChange(e)}
+        >
       </input>
 
       <div className='answers-container'>

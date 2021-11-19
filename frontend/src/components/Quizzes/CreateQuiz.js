@@ -60,7 +60,7 @@ const CreateQuiz = () => {
           <input type='text'
           placeholder="quiz name"
           value={quizName}
-          maxlength="33"
+          max="40"
           required
           onChange={e => setQuizName(e.target.value)}
           ></input>

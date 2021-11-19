@@ -1,28 +1,41 @@
 import React, {useEffect, useState} from 'react'
 import './AddAnswers.css'
+import Select from 'react-select'
 
 const AddAnswers = ({questionIndex, setNewQuestions, newQuestions}) => {
-  // let [prompt, setPrompt] = useState(currentQuestion.prompt);
+
   // let [answers, setAnswers] = useState([{value: "", correct: false}])
+  const [options, setOptions] = useState([])
+  const [correctAnswer, setCorrectAnswer] = useState(null)
+  const [count, setCount] = useState(0);
   const letters = ['A', 'B', 'C', 'D', 'E', 'F'];
+
 
 
   useEffect(()=> {
     console.log(questionIndex, newQuestions)
-  }, [questionIndex])
+    const arr = [];
+    for (let i = 0; i <  newQuestions[questionIndex].answers.length; i++){
+      arr.push({ value: letters[i].toLowerCase(), label: letters[i]})
+      console.log(arr)
+    }
+    setOptions(arr)
+  }, [questionIndex, newQuestions[questionIndex]['answers']], count)
 
 const handleChange = (e) => {
     // setPrompt(e.target.value)
 
     setNewQuestions(prev => {
         let newState = [...prev]
-        newState[questionIndex].value = e.target.prompt;
+        newState[questionIndex].prompt = e.target.value;
+
         return newState
          }
       )
   }
 
   const handleAnswerChange = (e, i) => {
+    setCount(i => i+ 1)
     setNewQuestions(prev => {
       const copy = [...prev]
 
@@ -31,25 +44,43 @@ const handleChange = (e) => {
   })
 }
 
-  const addAnswer = () => {
-    if (newQuestions[questionIndex].answers.length >=6){
+  const addAnswer = (e) => {
+    e.stopPropagation()
+    console.log("ADDDING")
+    if (newQuestions[questionIndex].answers.length >=6) {
       return;
     }
-    setNewQuestions(prev => {
-     let newState = [...prev];
-      newState[questionIndex].answers.concat({value: "", correct: false})
-      return newState;
-     })
+
+    let c = [...newQuestions]
+    c[questionIndex].answers.push({value: "", correct: false})
+
+    setNewQuestions(c)
+    setCount(i => i+ 1)
   }
 
   const removeAnswer = (i) => {
+    let copy = [...newQuestions]
+    copy[questionIndex]['answers'] = copy[questionIndex]['answers'].slice(0, i).concat(copy[questionIndex]['answers'].slice(i+1));
 
+    setNewQuestions(copy)
+  }
 
+  const handleCorrect = (e) => {
+    console.log(e.value, "!!!!!!")
+    setCorrectAnswer(e.value);
   }
 
   return (
     <div className='add-answers-container'>
       <span className='num'>#{questionIndex + 1}</span>
+      <div style={{display: 'none'}}>{count}</div>
+      <Select
+        className="correct-menu"
+        options={options}
+        required
+        onChange={e => handleCorrect(e)}
+          />
+          <p>correct answer</p>
       <input
       className='question-prompt-input'
       placeholder='New Question...'
@@ -63,10 +94,11 @@ const handleChange = (e) => {
 
      { newQuestions[questionIndex]?.answers?.map( (answer, i) =>
 
-     <div className='individual-answer' key={i}>
+     <div className='individual-answer' key={i} style={{ backgroundColor : letters[i].toLowerCase() == correctAnswer ? 'rgb(6, 168, 6)' : 'white'}}>
 
       <span>{letters[i]}.</span>
       <input
+      style={{ backgroundColor : letters[i].toLowerCase() == correctAnswer ? 'rgb(6, 168, 6)' : 'white'}}
       type='text'
       placeholder='option'
       max='30'
@@ -79,7 +111,6 @@ const handleChange = (e) => {
      )}
       </div>
       <span className='add-answer-btn' onClick={addAnswer}>add choice</span>
-      <button className=''>Add Question</button>
     </div>
   )
 }

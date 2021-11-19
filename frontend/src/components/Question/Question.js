@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-const Question = ({question, i, setNewQuestions, setCurrentQuestionIndex, setShowAddAnswers}) => {
+const Question = ({question, i, setNewQuestions, newQuestions, setCurrentQuestionIndex, setShowAddAnswers}) => {
 
 
   const [showModal, setShowModal] = useState(false)
@@ -26,29 +26,29 @@ const Question = ({question, i, setNewQuestions, setCurrentQuestionIndex, setSho
 
   return (
     <>
-    <div className ='questions-added' onClick={handleSetQ} >
+    <div className ='questions-added' onClick={handleSetQ} key={i}>
       <div className ="type-counter">
         <span>
         <i className={logo[question.type]}></i>
         </span>
         <span>{i + 1}</span>
       </div>
-
-      <p>{ question.prompt ? question.prompt.slice(0, 33) + '...' : "New Question"}</p>
+      {/* {(question.prompt.length > 33) ? "yes" : "no" ? } */}
+      <p>{ question.prompt ?  (question.prompt.length > 33)  ? question.prompt.slice(0, 33)  + '...' : question.prompt.slice(0, 33) : "New Question"}</p>
 
       {/* <span className='add-answers-button'>add answers</span> */}
       <span className='elipsis' onClick={e => showRemove(e)}><i class="fas fa-ellipsis-v"></i></span>
 
       </div>
     {showModal &&
-      <RemoveQuestion i={i} setNewQuestions={setNewQuestions} showModal={showModal} setShowModal={setShowModal} />
+      <RemoveQuestion i={i} setNewQuestions={setNewQuestions} showModal={showModal} setShowModal={setShowModal} newQuestions={newQuestions}/>
       }
 
       </>
   )
 }
 
-const RemoveQuestion= ({i, setNewQuestions, showModal, setShowModal}) => {
+const RemoveQuestion= ({i, setNewQuestions, newQuestions,showModal, setShowModal}) => {
 
   useEffect(() => {
     const closeModal = () => {
@@ -59,6 +59,8 @@ const RemoveQuestion= ({i, setNewQuestions, showModal, setShowModal}) => {
   }, []);
 
   const handleDelete = () => {
+    if (newQuestions.length <= 1) return;
+
     setNewQuestions(prev => prev.slice(0, i).concat(prev.slice(i+1))
       )
   }

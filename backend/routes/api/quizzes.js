@@ -26,6 +26,13 @@ asyncHandler(async (req, res) => {
   })
 );
 
+router.post('/',
+asyncHandler(async (req, res) => {
+const {} = req.body;
+
+
+})
+)
 
 
 module.exports = router;

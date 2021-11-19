@@ -3,17 +3,19 @@ import '../Quizzes/CreateQuiz.css'
 import Question from './Question'
 import QuestionTypes from './QuestionTypes'
 import AddAnswers from './AddAnswers'
+import { useSelector, useDispatch } from "react-redux";
+import { postQuiz } from '../../store/quiz'
 
 
 const CreateQuestions = ({quiz, setCurrentQuiz}) => {
   const [create, setShowCreate] = useState(false)
   const [newQuestions, setNewQuestions] = useState([
-    {prompt: "", type:"mc", answers: [{value: "", correct: false}] }, { prompt: "", type:"mc", answers: [{value: "", correct: false} ] } ])
+    {prompt: "", type:"mc", answers: [{value: "", correct: false}] }, { prompt: "", type:"mc", answers: [{value: "", correct: false}] } ])
   let [currentQuestionIndex, setCurrentQuestionIndex] = useState(null)
   const [showTypes, setShowTypes] = useState(false)
   const [type, setType] = useState("mc") // this state should belong to the QuestionTypes.js component
-    const [showAddAnswers, setShowAddAnswers] = useState(false);
-
+  const [showAddAnswers, setShowAddAnswers] = useState(false);
+  const dispatch = useDispatch()
   const handleRemove = () => {
     setCurrentQuiz({})
   }
@@ -23,6 +25,12 @@ const CreateQuestions = ({quiz, setCurrentQuiz}) => {
   }
   const handleHide= () => {
     setShowCreate(false)
+  }
+
+  const publishQuiz = () => {
+    console.log(newQuestions, quiz)
+
+    // dispatch(postQuiz(newQuestions))
   }
 
   return (
@@ -53,7 +61,10 @@ const CreateQuestions = ({quiz, setCurrentQuiz}) => {
 
         {newQuestions.map( (question, i) =>
 
-          <Question question={question} i={i} setNewQuestions={setNewQuestions} setCurrentQuestionIndex={setCurrentQuestionIndex}
+          <Question question={question} i={i}
+          setNewQuestions={setNewQuestions}
+          newQuestions={newQuestions}
+          setCurrentQuestionIndex={setCurrentQuestionIndex}
           currentQuestionIndex={currentQuestionIndex}
           setShowAddAnswers={setShowAddAnswers}
           key={i}
@@ -74,7 +85,7 @@ const CreateQuestions = ({quiz, setCurrentQuiz}) => {
         />
       }
 
-      <button className='publish'>publish</button>
+      <button className='publish' onClick={publishQuiz}>publish</button>
      </div>
 
 

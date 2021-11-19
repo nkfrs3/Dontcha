@@ -23,3 +23,14 @@
 .quiz-title {
   background-color: red;
 }
+
+.submission-err {
+  text-align: center;
+  color: rgb(216, 66, 12);
+  outline: 3px solid rgb(216, 66, 12);
+  width: fit-content;
+  padding: 5px 25px;
+  white-space: nowrap;
+  margin: 0 auto;
+  overflow-x: hidden;
+}

@@ -9,7 +9,7 @@ const setQuizzes = (quizzes) => ({
 });
 
 const addQuiz = (quiz) => ({
-  type: SET_QUIZZES,
+  type: ADD_QUIZ,
   quiz
 });
 
@@ -21,16 +21,17 @@ export const getQuizzes = () => async(dispatch) => {
 }
 
 export const postQuiz = (payload) => async(dispatch) => {
-  const body = ""
 
   const response = await csrfFetch(`/api/quizzes`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body
+    body: JSON.stringify(payload)
   });
-  dispatch(addQuiz());
+  const res = await response.json()
+  dispatch(addQuiz(res));
+  return res;
 
 }
 
@@ -44,7 +45,11 @@ const reducer = (state = initialState, action) => {
         quizzes.map( quiz => prevState.all[quiz.id] = quiz)
         return prevState
       case ADD_QUIZ:
-        return state
+        console.log(action.quiz)
+        const quizId = action.quiz['id'];
+        const prev = {...state};
+        prev['all'][quizId] = action.quiz
+        return prev
       default:
          return state;
       }

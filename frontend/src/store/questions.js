@@ -1,4 +1,4 @@
-// import { csrfFetch } from "./csrf";
+import { csrfFetch } from "./csrf";
 
 const SET_QUESTIONS = 'questions/setQuestions';
 
@@ -15,6 +15,24 @@ export const getQuestions = (quizId) => async(dispatch) => {
   return;
 }
 
+export const postQuestions= (quiz, questions) => async(dispatch) => {
+
+  console.log(questions, "!!!!")
+  const payload = { questions };
+
+  const data = await csrfFetch(`/api/questions/${quiz.id}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload)
+      });
+      if (data.ok){
+        const json = await data.json()
+        dispatch(setQuestions(json));
+      }
+      return;
+}
 
 
 

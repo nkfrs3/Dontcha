@@ -26,13 +26,16 @@ asyncHandler(async (req, res) => {
   })
 );
 
-router.post('/',
-asyncHandler(async (req, res) => {
-const {} = req.body;
+  router.post('/',
+  asyncHandler(async (req, res) => {
+  const {title, topic, userId} = req.body;
+
+  const entry = await quiz.create({title, topic, userId})
+  return res.json(entry);
 
 
-})
-)
+  })
+  )
 
 
 module.exports = router;

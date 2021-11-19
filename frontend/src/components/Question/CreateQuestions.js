@@ -6,6 +6,7 @@ import AddAnswers from './AddAnswers'
 import { useSelector, useDispatch } from "react-redux";
 import { postQuiz } from '../../store/quiz'
 import PublishModal from '../Quizzes/PublishModal'
+import { postQuestions } from '../../store/questions'
 
 
 const CreateQuestions = ({quiz, setCurrentQuiz}) => {
@@ -19,6 +20,9 @@ const CreateQuestions = ({quiz, setCurrentQuiz}) => {
   const [showAddAnswers, setShowAddAnswers] = useState(false);
   const [errors, setErrors] = useState('');
   const dispatch = useDispatch()
+
+  const user = useSelector(state => state.session.user)
+
   const handleRemove = () => {
     setCurrentQuiz({})
   }
@@ -30,8 +34,8 @@ const CreateQuestions = ({quiz, setCurrentQuiz}) => {
     setShowCreate(false)
   }
 
-  const publishQuiz = () => {
 
+  const publishQuiz = () => {
 
     if (  newQuestions.length < 2 ){
       setErrors('You must create atleast 2 questions.')
@@ -41,25 +45,29 @@ const CreateQuestions = ({quiz, setCurrentQuiz}) => {
         return
     }if (newQuestions.some(q => q.answers.length <= 1)){
       setErrors('You must provide two answers for all questions.')
-
       return;
-    }if (newQuestions.some(q => q.answers.some(x => x.value.length < 1))){
+    }if ( newQuestions.some(q => q.answers.some(x => x['value'].length < 1))) {
       setErrors('Your answers must be valid.')
       return;
-    }if ( newQuestions.forEach(question => question.answers.some(answer => answer.correct !== true))){
-      window.alert("no")
+    }
+
+    if ( !newQuestions.every(question => question['answers'].find(answer => answer['correct'] == true)) ){
+      window.alert('You must select a correct answer')
       setErrors('You must provide a correct answer.')
       return;
-    }
-      else {
+    }else {
         setErrors("")
+        quiz.userId = user.id;
+        const inserted = dispatch(postQuiz(quiz))
+        .then(json =>  dispatch(postQuestions(json, newQuestions)));
+        }
       }
 
-    // dispatch(postQuiz(newQuestions))
-   }
+
+
 
   return (
-    <>{errors && <div>{errors}</div> }
+    <>{errors && <div className="submission-err">{errors}</div> }
     <div className="create-question-container">
 
       <div className="side-bar">

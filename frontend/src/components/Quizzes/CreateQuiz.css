@@ -86,9 +86,12 @@ span.plus:hover {
   background-color: black;
   opacity: 75%;
   border-radius: 15px;
+  top: -25px;
+  right: -45px;
   color: white;
   padding: 5px 10px;
   white-space: nowrap;
+  position: absolute;
 }
 
 .title-topic {

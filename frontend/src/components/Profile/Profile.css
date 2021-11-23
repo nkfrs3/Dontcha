@@ -1,0 +1,81 @@
+
+.p-w {
+  height: 100%;
+  width:100%;
+  background-color:
+  #fff9f9;
+}
+
+.profile-banner {
+  background-color: #24293c;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  color: rgb(245, 244, 241);
+}
+.profile-banner span {
+  font-size: 3.5rem;
+  color: rgb(240, 237, 227);
+  padding: 0 1.5rem 0 1.3rem;
+
+}
+.p-w h4 {
+
+  height: 34px;
+  color: rgb(247, 247, 247);
+  display: inline-block;
+  width: fit-content;
+}
+
+.r-a-b{
+  display: flex;
+  width:100%;
+  background-color: #384053;
+  justify-content: space-between;
+  padding: 0.2rem 3.5rem 0.2rem 3.5rem;
+  margin-bottom: 3rem;
+}
+
+.profile-banner  h3 {
+  font-size: 1.8rem;
+}
+.m-q-c {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 1rem;
+  justify-content: flex-start;
+  grid-column-gap: 0.75rem;
+  grid-row-gap: 0.75rem;
+  width: 900px;
+  justify-content: flex-start;
+}
+
+.m-q h6 {
+  font-size: 1.25rem;
+  height: 10px;
+  margin: 0;
+}
+
+.m-q {
+  border: 1px solid black;
+  background-color: #ffffff;
+  flex-basis: 400px;
+  min-width: 300px;
+  height: 165px;
+  color: #101111;
+
+}
+
+.m-q-t {
+  display: flex;
+}
+
+@media screen and (max-width: 550px){
+  .m-q {
+    min-width: 300px;
+  }
+}
+
+.rec-a {
+  background-color: orchid;
+}

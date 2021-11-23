@@ -1,7 +1,7 @@
 const express = require('express')
 const asyncHandler = require('express-async-handler');
 var Sequelize = require('sequelize');
-const { User, quiz, question } = require('../../db/models');
+const { User, quiz, question, answer } = require('../../db/models');
 
 const router = express.Router();
 
@@ -26,12 +26,33 @@ asyncHandler(async (req, res) => {
   })
 );
 
-router.post('/',
+  router.post('/',
+  asyncHandler(async (req, res) => {
+  const {title, topic, userId} = req.body;
+
+  const entry = await quiz.create({title, topic, userId})
+  return res.json(entry);
+   })
+  )
+
+
+router.get('/user/:id',
 asyncHandler(async (req, res) => {
-const {} = req.body;
+    const {id} = req.params;
 
+  const quizzes = await quiz.findAll({
+    where: {
+      userId: id
+    },
+      include: {
+        model: question,
+        include: answer,
+        },
+        order: [["updatedAt", 'DESC']],
+    })
+    return res.json(quizzes)
 
-})
+  })
 )
 
 

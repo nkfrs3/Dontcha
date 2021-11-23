@@ -1,4 +1,4 @@
-// import { csrfFetch } from "./csrf";
+import { csrfFetch } from "./csrf";
 
 const SET_QUESTIONS = 'questions/setQuestions';
 
@@ -15,6 +15,21 @@ export const getQuestions = (quizId) => async(dispatch) => {
   return;
 }
 
+export const postQuestions= (quiz, questions) => async(dispatch) => {
+  const payload = { questions };
+
+  const data = await csrfFetch(`/api/questions/${quiz.id}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload)
+      });
+      if (data.ok){
+        const json = await data.json()
+      }
+      return;
+}
 
 
 
@@ -25,6 +40,9 @@ const initialState = {};
 const reducer = (state = initialState, action) => {
   switch(action.type) {
     case SET_QUESTIONS:
+      if (!action.questions.length){
+        return state;
+      }
       const newState = {...state}
       newState[action.questions[0].quizId] = action.questions;
       return newState;

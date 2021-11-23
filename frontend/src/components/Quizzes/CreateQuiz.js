@@ -5,6 +5,7 @@ import CreateQuestions from "../Question/CreateQuestions"
 
 const CreateQuiz = () => {
 
+
   // const [quizToCreate, setQuizToCreate] = useState({})
   const [ quizName, setQuizName] = useState('');
   const [ topic, setTopic] = useState('');

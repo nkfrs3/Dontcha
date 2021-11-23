@@ -91,7 +91,7 @@ const handleChange = (e) => {
         className='question-prompt-input'
         placeholder='New Question...'
         required
-        value={newQuestions[questionIndex].prompt}
+        value={newQuestions[questionIndex]?.prompt}
         onChange={e => handleChange(e)}
         >
       </input>

@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500&family=Spectral:wght@500&display=swap');
+
 /* TODO Add site wide styles */
 *,
 *::before,
@@ -5,12 +8,19 @@
   box-sizing: border-box;
 }
 #root{
-  background-color: rgb(246, 242, 247);
   height: 100%;
 }
 html{
   /* position: relative; */
   height:100%;
+}
+p, div, span {
+  font-family: 'Spectral', serif;
+}
+
+
+h1, h2, h3, h4, h5, h6{
+  font-family: 'Outfit', sans-serif;;
 }
 
 body,
@@ -66,6 +76,7 @@ section {
 
 #content-wrap {
   padding-bottom: 2.5rem;    /* Footer height */
+  /* height: 100%; */
 }
 
 #footer {

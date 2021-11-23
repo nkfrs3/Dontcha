@@ -1,18 +1,82 @@
-.quizzes-container{
+.ex-c {
+  display:grid;
+  grid-template-columns: 20px repeat(4, 1fr) 20px;
+  grid-template-rows: repeat(8, 1fr);
+  /* height: 100%; */
+  padding-top: 4.5rem;
+  overflow-y:auto;
+
+}
+
+.tst {
+  background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/184ff4fc-b605-46bb-9532-2a6eba643bb2/d6j4gyz-e458a827-49ad-4a23-b908-476c95bea0e3.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE4NGZmNGZjLWI2MDUtNDZiYi05NTMyLTJhNmViYTY0M2JiMlwvZDZqNGd5ei1lNDU4YTgyNy00OWFkLTRhMjMtYjkwOC00NzZjOTViZWEwZTMucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.XWNWZGa_SDbii9D0NJ6zh2-UVX4v_hiLbbUO6yLBuE8');
+  background-size: cover;
+  height: 35rem;
+  width: 900px;
+  position: absolute;
+  top: 11rem;
+  left: -2rem;
+  z-index: -100;
+    mix-blend-mode:luminosity;
+}
+.tst2 {
+  background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/184ff4fc-b605-46bb-9532-2a6eba643bb2/d6j4gyz-e458a827-49ad-4a23-b908-476c95bea0e3.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzE4NGZmNGZjLWI2MDUtNDZiYi05NTMyLTJhNmViYTY0M2JiMlwvZDZqNGd5ei1lNDU4YTgyNy00OWFkLTRhMjMtYjkwOC00NzZjOTViZWEwZTMucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.XWNWZGa_SDbii9D0NJ6zh2-UVX4v_hiLbbUO6yLBuE8');
+  background-size: cover;
+  height: 35rem;
+  width: 900px;
+  position: absolute;
+  top: 22rem;
+  right: -10rem;
+  z-index: -100;
+    mix-blend-mode:multiply;
+}
+.top-right{
+  margin-left: 0.5rem;
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  background-color: red;
+  font-size: 0.75rem;
+  display: inline-block;
+}
+.top-right p{
+  margin-right: 0.3rem;
+  font-weight: 500;
+}
+.quizzes-container{
+  grid-column: 3/6;
+  grid-row: 1/9;
+  display: flex;
+  padding: 1rem 0 1rem 0;
+  flex-wrap: wrap;
+  row-gap: 1rem;
+  column-gap: 1rem;
+  overflow-y: auto;
+  margin-left: 1rem;
 }
 
 .quiz-container {
-  background-color: rgb(241, 229, 229);
-  border: 2px solid black;
-  padding: 10px;
+  background-color: rgb(255, 255, 255);
+  /* border: 2px solid black; */
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  border-radius: 6px;
+  box-shadow: 1px 1px 1px rgb(105, 105, 105), -1px -0.3px 1px rgb(97, 50, 184), -1px -0.5px 1px rgb(21, 7, 49);
+  width: 300px;
+  height: 7.2rem;
+  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* height: 7rem; */
 }
-
+.quiz-container p {
+  font-size: 12px;
+  display: inline-block;
+}
+.quiz-container h2 {
+  color: rgb(97, 50, 184);
+  text-shadow: 0.7px 0.3px 1px black;
+  display: inline-block;
+}
 .quiz-container:hover {
-  background-color: antiquewhite;
+  box-shadow: 1.5px 2px 1px rgb(105, 105, 105), -1px -0.2px 1px 0.3px rgb(12, 7, 22);
 }
 
 .question-card {
@@ -23,7 +87,25 @@
 .quiz-title {
   background-color: red;
 }
+.top-tak {
+  display: flex;
+  justify-content: space-between;
+  color: rgb(2, 1, 3);
 
+}
+.take{
+  outline: 1.5px solid rgb(44, 18, 94);
+  cursor: pointer;
+  padding: 0.2rem 1rem;
+  border-radius: 5px;
+  color: rgb(23, 26, 68);
+  font-weight: 700;
+
+}
+.take:hover {
+  color: rgb(64, 33, 121);
+  outline: 1px solid rgb(78, 38, 151);
+}
 .submission-err {
   text-align: center;
   color: rgb(216, 66, 12);
@@ -33,4 +115,16 @@
   white-space: nowrap;
   margin: 0 auto;
   overflow-x: hidden;
+}
+
+.t-side {
+  grid-column: 2/3;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.t-side .ex-s {
+  width: 200px;
+  text-align: center;
 }

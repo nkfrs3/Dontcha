@@ -1,0 +1,10 @@
+.num-container{
+  display: flex;
+  background-color: black;
+  gap: 1rem;
+  font-size: 1.35rem;
+  color: azure;
+}
+.num-picker {
+
+}

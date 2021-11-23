@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { postQuiz } from '../../store/quiz'
 import PublishModal from '../Quizzes/PublishModal'
 import { postQuestions } from '../../store/questions'
-
+import { useHistory } from 'react-router'
 
 const CreateQuestions = ({quiz, setCurrentQuiz}) => {
   const [create, setShowCreate] = useState(false)
@@ -19,6 +19,7 @@ const CreateQuestions = ({quiz, setCurrentQuiz}) => {
   const [type, setType] = useState("mc") // this state should belong to the QuestionTypes.js component
   const [showAddAnswers, setShowAddAnswers] = useState(false);
   const [errors, setErrors] = useState('');
+  const history = useHistory();
   const dispatch = useDispatch()
 
   const user = useSelector(state => state.session.user)
@@ -59,7 +60,14 @@ const CreateQuestions = ({quiz, setCurrentQuiz}) => {
         setErrors("")
         quiz.userId = user.id;
         const inserted = dispatch(postQuiz(quiz))
-        .then(json =>  dispatch(postQuestions(json, newQuestions)));
+        .then(json =>  dispatch(postQuestions(json, newQuestions))).then(res => {
+          if (user){
+            history.push(`/profile/${user.id}`)
+          }else {
+            history.push(`/quizzes`)
+          }
+        }).catch(e => console.log(e))
+
         }
       }
 

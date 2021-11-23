@@ -10,7 +10,7 @@ module.exports = {
       */
    return queryInterface.bulkInsert('questions', [
    {
-    prompt: 'Who is the actres that played Ramona Flowers?',
+    prompt: 'Who is the actress that played Ramona Flowers?',
     quizId: 1,
     type: 'mc',
     createdAt: new Date(),

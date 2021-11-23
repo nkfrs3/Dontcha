@@ -16,8 +16,6 @@ export const getQuestions = (quizId) => async(dispatch) => {
 }
 
 export const postQuestions= (quiz, questions) => async(dispatch) => {
-
-  console.log(questions, "!!!!")
   const payload = { questions };
 
   const data = await csrfFetch(`/api/questions/${quiz.id}`, {
@@ -29,7 +27,6 @@ export const postQuestions= (quiz, questions) => async(dispatch) => {
       });
       if (data.ok){
         const json = await data.json()
-        dispatch(setQuestions(json));
       }
       return;
 }
@@ -43,6 +40,9 @@ const initialState = {};
 const reducer = (state = initialState, action) => {
   switch(action.type) {
     case SET_QUESTIONS:
+      if (!action.questions.length){
+        return state;
+      }
       const newState = {...state}
       newState[action.questions[0].quizId] = action.questions;
       return newState;

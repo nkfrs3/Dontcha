@@ -8,6 +8,7 @@ import Footer from "./components/Navigation/Footer";
 import Quiz from "./components/Quizzes/Quiz";
 import SplashPage from "./components/SplashPage"
 import CreateQuiz from "./components/Quizzes/CreateQuiz";
+import Profile from "./components/Profile";
 
 function App () {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -37,6 +38,9 @@ function App () {
       </Route>
       <Route exact path ="/create">
         <CreateQuiz />
+      </Route>
+      <Route exact path ="/profile/:id">
+        <Profile />
       </Route>
       </ Switch>
       }

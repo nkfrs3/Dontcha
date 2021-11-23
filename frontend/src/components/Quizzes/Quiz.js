@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useParams, Redirect } from 'react-router-dom'
 import { getQuestions } from '../../store/questions'
+import StartQuiz from '../TakeQuiz/StartQuiz'
 import './quiz.css'
 
 const Quiz = () => {
@@ -13,7 +14,7 @@ const Quiz = () => {
   const questions = useSelector(state => state.questions)
   const quizzes = useSelector(state => state.quizzes.all)
   const [started, setStarted] = useState(false)
-  const [currentQuestion, setCurrentQuestion] = useState(null);
+  // const [currentQuestion, setCurrentQuestion] = useState(null);
 
   const [loaded, setLoaded] = useState(false);
   const [ currentQuiz, setCurrentQuiz] = useState(null)
@@ -30,23 +31,20 @@ useEffect(() => {
 
 }, [])
 
-const handleStart = () => {
+const handleStart = (e) => {
+  e.stopPropagation()
   setStarted(true)
-  setCurrentQuestion(questions[quizId][0])
+  // setCurrentQuestion(questions[quizId][0])
 }
 
   return (
     <div>
       <h2 className='quiz-title'>{quizzes[quizId]?.title}</h2>
 
-      {quizId} !!!!!
-      <button onClick={handleStart}>START</button>
-      {started && currentQuestion &&
+     {!started && <button onClick={e => handleStart(e)}>START</button>}
 
-          <div className="question-card">
-          {currentQuestion.prompt}
-        </div>
-
+      {started &&
+        <StartQuiz quiz={quizzes[quizId]} questions={questions[quizId]}/>
       }
 
 

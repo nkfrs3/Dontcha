@@ -8,3 +8,14 @@
 .num-picker {
 
 }
+.ans {
+  background-color: pink;
+  display: flex;
+  gap: 0.25rem;
+  margin: 5px 0;
+  font-size: 1.25rem;
+}
+
+.ans span {
+  margin-right: 1rem;
+}

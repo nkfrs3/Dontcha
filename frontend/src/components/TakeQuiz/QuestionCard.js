@@ -22,7 +22,7 @@ const QuestionCard = ({currentQuestion}) => {
   return (
     <div className='question-card'>
       <h2>{currentQuestion?.prompt}</h2>
-      Hello from Questioncard
+
       <div className='answers-container'>
       {handleQuestionType(currentQuestion.type)}
 

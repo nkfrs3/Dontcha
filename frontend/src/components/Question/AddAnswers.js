@@ -62,6 +62,7 @@ const handleChange = (e) => {
   }
 
   const handleCorrect = (e) => {
+    console.log(e.value)
     setCorrectAnswer(e.value);
     let index = (letters.indexOf(e.value.toUpperCase()))
     if (index !== -1) {
@@ -79,13 +80,14 @@ const handleChange = (e) => {
       <span className='num'>#{questionIndex + 1}</span>
       <div style={{display: 'none'}}>{count}</div>
 
-
       <Select
         className="correct-menu"
         options={options}
         required
         onChange={e => handleCorrect(e)}
+
           />
+
           <p>correct answer</p>
         <input
         className='question-prompt-input'
@@ -100,11 +102,11 @@ const handleChange = (e) => {
 
      { newQuestions[questionIndex]?.answers?.map( (answer, i) =>
 
-     <div className='individual-answer' key={i} style={{ backgroundColor : letters[i].toLowerCase() == correctAnswer ? 'rgb(6, 168, 6)' : 'white'}}>
+     <div className='individual-answer' key={i} style={{ backgroundColor : answer.correct == true ? 'rgb(6, 168, 6)' : 'white'}}>
 
       <span>{letters[i]}.</span>
       <input
-      style={{ backgroundColor : letters[i].toLowerCase() == correctAnswer ? 'rgb(6, 168, 6)' : 'white'}}
+      style={{ backgroundColor : answer.correct == true ? 'rgb(6, 168, 6)' : 'white'}}
       type='text'
       placeholder='option'
       max='30'

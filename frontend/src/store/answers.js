@@ -6,7 +6,7 @@ import { csrfFetch } from "./csrf";
 //   quiz
 // });
 
-export const postAnswer = (userId, questionId, correct) => async(dispatch) => {
+export const postAnswer = (userId, questionId, correct, value) => async(dispatch) => {
   console.log(userId, questionId, correct);
 
   const response = await csrfFetch(`/api/answers`, {
@@ -14,7 +14,7 @@ export const postAnswer = (userId, questionId, correct) => async(dispatch) => {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({userId, questionId, correct})
+    body: JSON.stringify({userId, questionId, correct, value})
   });
   const res = await response.json()
   // dispatch(addAnswer(res));

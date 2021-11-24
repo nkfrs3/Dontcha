@@ -12,6 +12,7 @@ module.exports = {
      title: 'Scott Pilgrim',
      userId: 1,
      topic: 'movies',
+     description: 'How well do you know Scott Pilgrim vs The World?!',
      timeLimit: 72000,
      createdAt: new Date(),
      updatedAt: new Date()

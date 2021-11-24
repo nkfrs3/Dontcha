@@ -13,6 +13,12 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
 
     },
+    description: {
+      type: DataTypes.STRING,
+      validate: {
+        len: [3, 400]
+      }
+    },
     timeLimit: {
       type: DataTypes.INTEGER,
       validate: {

@@ -27,7 +27,10 @@ const Navigation = ({isLoaded}) => {
       <NavLink to="/" className='app-title' activeClassName="home">Dontcha Know</NavLink>
 
       { currentUser &&
-      <NavLink to='/create' activeClassName="home">create</NavLink>
+      <>
+       <NavLink to='/quizzes' activeClassName="quizzes-link">quizzes</NavLink>
+      <NavLink to='/create' activeClassName="home-link">create</NavLink>
+      </>
       }
       {currentUser && <h2 className='welcome'>{currentUser?.username}</h2>}
 

@@ -2,7 +2,7 @@ import React, {useState, useRef, useEffect} from 'react'
 import './TakeQuiz.css'
 import Results from './Results';
 
-const McAnswers = ({currentQuestion}) => {
+const McAnswers = ({currentQuestion, setQuizScore, setQuizComplete, quizScore}) => {
 
 
   const letters = ['A', 'B', 'C', 'D', 'E', 'F'];
@@ -20,10 +20,8 @@ const McAnswers = ({currentQuestion}) => {
   const handleAnswer = (e) => {
 
    if (e.target.value == correctAnswer.value){
-     window.alert('CORRECT!')
      currentQuestion.correct = true;
    }else {
-    window.alert('WRONGGG!')
      currentQuestion.correct = false;
    }
    currentQuestion.answered = true;

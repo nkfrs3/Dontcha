@@ -5,14 +5,17 @@ import MwAnswers from './MwAnswers'
 
 const QuestionCard = ({currentQuestion}) => {
 
+  const [quizScore, setQuizScore] = useState(0);
+  const [quizComplete, setQuizComplete] = useState(false);
+
   const handleQuestionType = (type) => {
     switch(type) {
       case 'mc':
-        return <McAnswers currentQuestion= {currentQuestion} />
+        return <McAnswers currentQuestion= {currentQuestion} setQuizScore={setQuizScore} setQuizComplete={setQuizComplete} quizScore={quizScore}/>
       case 'tf':
-        return <TfAnswers currentQuestion={currentQuestion} />
+        return <TfAnswers currentQuestion={currentQuestion} setQuizScore={setQuizScore} setQuizComplete={setQuizComplete} quizScore={quizScore}/>
       case 'mw':
-        return <MwAnswers currentQuestion={currentQuestion} />
+        return <MwAnswers currentQuestion={currentQuestion} setQuizScore={setQuizScore} setQuizComplete={setQuizComplete} quizScore={quizScore}/>
       default:
         return;
           }

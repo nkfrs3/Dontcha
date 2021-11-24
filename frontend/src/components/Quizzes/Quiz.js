@@ -23,7 +23,6 @@ const Quiz = () => {
     if (!quizzes[quizId]){
       history.push('/quizzes')
     }
-
   }, [quizzes])
 
 useEffect(() => {
@@ -36,19 +35,35 @@ const handleStart = (e) => {
   setStarted(true)
   // setCurrentQuestion(questions[quizId][0])
 }
+  const parseDate = (date) => {
+    if (!date) return;
+    const splitDate = date.split('-')
+    console.log(splitDate)
+    const day = splitDate[2].slice(0, 2)
+    console.log(day)
+
+    return `${splitDate[1]}/${day}/${splitDate[0]}`;
+  }
 
   return (
     <div>
       <h2 className='quiz-title'>{quizzes[quizId]?.title}</h2>
-
+    <div className="start-btn-cont">
      {!started && <button onClick={e => handleStart(e)}>START</button>}
-
-      {started &&
+     </div>
+      {started && questions[quizId] &&
         <StartQuiz quiz={quizzes[quizId]} questions={questions[quizId]}/>
       }
 
 
-
+    <div className='author-info'>
+      <div className='prof-icon'><i class={quizzes[quizId]?.User.profileIcon}></i></div>
+      <div className='auth-info'>
+        <p>created by:</p>
+        <h5>{quizzes[quizId]?.User.username}</h5>
+      </div>
+      <p className='d8'>{parseDate(quizzes[quizId]?.createdAt)}</p>
+    </div>
     </div>
   )
 }

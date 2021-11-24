@@ -13,7 +13,7 @@ asyncHandler(async (req, res) => {
       include: [
         {
         model: question, attributes: ['id']   },
-        { model:User, attributes: ['username'] }]
+        { model:User, attributes: ['username', 'profileIcon'] }]
     })
 
 // attributes: {

@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import QuestionCard from './QuestionCard'
 // import TfQuestionCard from './TfQuestionCard'
 import './TakeQuiz.css'
@@ -8,6 +8,9 @@ const StartQuiz = ({quiz, questions}) => {
 const [currentQuestion, setCurrentQuestion] = useState(questions[0])
 const [index, setIndex] = useState(0)
 
+useEffect(() => {
+  console.log(currentQuestion, '!!!!!')
+}, [currentQuestion])
 
 const handleNumber = (i) => {
   setIndex(i)
@@ -30,7 +33,7 @@ const handleNext = () => {
   }
 }
   return (
-    <div className='question-outer'>
+    <div className='question-outer' style={{outline: currentQuestion.correct == true ? '3px solid rgb(10, 209, 10)' : currentQuestion.correct == false ? '3px solid red' : 'none'}}>
     { currentQuestion &&
     <QuestionCard currentQuestion= {currentQuestion} />  }
 

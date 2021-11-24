@@ -32,7 +32,7 @@ const TfAnswers = ({currentQuestion, numAnswered, setQuizScore}) => {
      }
      currentQuestion.answered = true;
      currentQuestion.chosenAnswer = e.target.value
-     dispatch(postAnswer(user.id, currentQuestion.id, currentQuestion.correct))
+     dispatch(postAnswer(user.id, currentQuestion.id, currentQuestion.correct, e.target.value))
      setAnswered(true);
     }
 

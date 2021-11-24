@@ -20,6 +20,10 @@ module.exports = {
       topic: {
         type: Sequelize.STRING
       },
+      description: {
+        type: Sequelize.STRING,
+        defaultValue: "A quiz on Dontcha Know."
+      },
       timeLimit: {
         type: Sequelize.INTEGER
       },

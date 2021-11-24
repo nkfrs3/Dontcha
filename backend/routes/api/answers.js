@@ -18,8 +18,8 @@ asyncHandler(async (req, res) => {
 
 router.post('/',
 asyncHandler(async (req, res) => {
-  const {userId, questionId, correct} = req.body;
-  const answer = await submittedAnswer.create({userId, questionId, correct})
+  const {userId, questionId, correct, value} = req.body;
+  const answer = await submittedAnswer.create({userId, questionId, correct, value})
   return res.json({})
 
 

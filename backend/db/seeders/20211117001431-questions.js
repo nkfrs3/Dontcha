@@ -37,6 +37,42 @@ module.exports = {
     createdAt: new Date(),
     updatedAt: new Date()
   },
+  {
+    prompt: `What artist was featured on Snoop Doggs 2004 hit "Drop It Like It's Hot"?`,
+    quizId: 2,
+    type: 'mc',
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    prompt: "What song spent the most weeks at No.1 in the year 2008?",
+    quizId: 2,
+    type: 'mc',
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    prompt: "Save A Horse by Big & Rich was the most popular Country song in the first decade of 2000.",
+    quizId: 2,
+    type: 'tf',
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    prompt: "In 2008 Brittney Spears released what track to become her first No. 1 since Baby One More Time - 1998?",
+    quizId: 2,
+    type: 'mc',
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    prompt: `Kanye West's "Gold Digger" features a sample from what classic jazz singer?`,
+    quizId: 2,
+    type: 'mw',
+    createdAt: new Date(),
+    updatedAt: new Date()
+  }
+
 
   ], {});
   },

@@ -18,6 +18,11 @@ module.exports = {
         allowNull: false,
         references: { model: 'questions', key: 'id' }
       },
+      value:{
+        type: Sequelize.STRING,
+        allowNull: false,
+      }
+      ,
       correct: {
         type: Sequelize.BOOLEAN,
         allowNull: false,

@@ -10,6 +10,7 @@
   padding: 5px 20px;
   background-color: rgb(0, 0, 0);
   color: white;
+  position: relative;
 
 }
 .question-outer h2 {
@@ -176,4 +177,55 @@ div.arr-num span {
   color: white;
 
 
+}
+
+
+.complete-card {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 999;
+  background-color: black;
+  border-radius: 30px;
+}
+
+.complete-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:space-around;
+  height: 100%;
+}
+
+.complete-inner h6 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.percent {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.percent p:first-child {
+  /* color: red; */
+  font-size: 2.5rem;
+}
+
+.percent p:last-child {
+  font-weight: 900;
+  font-size: 1.5rem;
+}
+
+.take-another {
+  font-size: 14px;
+  color: rgb(209, 213, 218);
+  cursor: pointer;
+}
+
+.take-another:hover {
+  color: white;
 }

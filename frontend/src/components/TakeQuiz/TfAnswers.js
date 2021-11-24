@@ -1,12 +1,16 @@
 import React, {useState, useRef, useEffect} from 'react'
+import { useSelector, useDispatch } from 'react-redux';
+import { postAnswer } from '../../store/answers';
 import Results from './Results';
 
-const TfAnswers = ({currentQuestion}) => {
+const TfAnswers = ({currentQuestion, numAnswered, setQuizScore}) => {
 
+    const dispatch = useDispatch();
     const letters = ['T', 'F']
     const radioInput = useRef()
     const [correctAnswer, setCorrectAnswer] = useState(currentQuestion.answers.find(ans => ans.correct == true))
     const [answered, setAnswered] = useState(false)
+    const user = useSelector(state => state.session.user)
 
     useEffect(()=> {
       setAnswered(false)
@@ -19,13 +23,16 @@ const TfAnswers = ({currentQuestion}) => {
 
      if (e.target.value == correctAnswer.value){
       //  window.alert('CORRECT!')
+      numAnswered.current++;
        currentQuestion.correct = true;
+       setQuizScore(prev => prev + 1);
      }else {
       // window.alert('WRONGGG!')
        currentQuestion.correct = false;
      }
      currentQuestion.answered = true;
      currentQuestion.chosenAnswer = e.target.value
+     dispatch(postAnswer(user.id, currentQuestion.id, currentQuestion.correct))
      setAnswered(true);
     }
 

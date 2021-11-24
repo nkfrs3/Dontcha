@@ -1,3 +1,49 @@
 .nav-bar {
   display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  background-color: white;
+  color: #554666;
+  border-bottom: 1px solid black;
+}
+
+.nav-bar  a {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.5rem;
+}
+
+.profile-nav{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.profile-icon{
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.dropdown-container {
+  background-color: rgb(248, 248, 248);
+  position: absolute;
+  right: 0;
+  top: 3rem;
+
+}
+.profile-dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+}
+.profile-dropdown span {
+  padding: 1px 5px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.profile-dropdown span:hover {
+  background-color: rgb(236, 236, 236);
+}
+#profile {
+  border-bottom: 1px solid black;
 }

@@ -1,14 +1,17 @@
 import React, {useState, useRef, useEffect} from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { postAnswer } from '../../store/answers';
 import './TakeQuiz.css'
 import Results from './Results';
 
-const McAnswers = ({currentQuestion, setQuizScore, setQuizComplete, quizScore}) => {
-
-
+const McAnswers = ({currentQuestion, setQuizScore, setQuizComplete, quizScore, numAnswered}) => {
+  const dispatch = useDispatch()
   const letters = ['A', 'B', 'C', 'D', 'E', 'F'];
   const radioInput = useRef()
   const [correctAnswer, setCorrectAnswer] = useState(currentQuestion.answers.find(ans => ans.correct == true))
   const [answered, setAnswered] = useState(false)
+
+  const user = useSelector(state => state.session.user)
 
   useEffect(()=> {
     setAnswered(false)
@@ -17,15 +20,18 @@ const McAnswers = ({currentQuestion, setQuizScore, setQuizComplete, quizScore}) 
     }
   }, [answered, currentQuestion])
 
-  const handleAnswer = (e) => {
 
+  const handleAnswer = (e) => {
+    numAnswered.current++;
    if (e.target.value == correctAnswer.value){
      currentQuestion.correct = true;
+     setQuizScore(prev => prev + 1);
    }else {
      currentQuestion.correct = false;
    }
    currentQuestion.answered = true;
    currentQuestion.chosenAnswer = e.target.value
+   dispatch(postAnswer(user.id, currentQuestion.id, currentQuestion.correct))
    setAnswered(true);
   }
 
@@ -41,7 +47,7 @@ const McAnswers = ({currentQuestion, setQuizScore, setQuizComplete, quizScore}) 
      {!currentQuestion.answered && !answered &&
       <div className='ans'  >
         <input type = 'radio' value={ans.value} name='answers'
-        onChange={e => handleAnswer(e) }
+        onClick={e => handleAnswer(e) }
         className={"radio-answers"}
         // disabled={currentQuestion.answered == true}
         >

@@ -35,7 +35,7 @@ const handleNext = () => {
   return (
     <div className='question-outer' style={{outline: currentQuestion.correct == true ? '3px solid rgb(10, 209, 10)' : currentQuestion.correct == false ? '3px solid red' : 'none'}}>
     { currentQuestion &&
-    <QuestionCard currentQuestion= {currentQuestion} />  }
+    <QuestionCard currentQuestion= {currentQuestion} quiz={quiz}/>  }
 
       <div className='question-control'>
         <div className='arr-num'>

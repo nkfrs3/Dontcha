@@ -1,7 +1,7 @@
 const express = require('express')
 const asyncHandler = require('express-async-handler');
 var Sequelize = require('sequelize');
-const { User, quiz, question, answer } = require('../../db/models');
+const { User, quiz, question, answer, score } = require('../../db/models');
 
 const router = express.Router();
 
@@ -55,5 +55,13 @@ asyncHandler(async (req, res) => {
   })
 )
 
+//route to add a new score after a user has completed taking a quiz
+router.post('/scores',
+asyncHandler(async (req, res) => {
+const {value, quizId, userId} = req.body;
 
+const entry = await score.create({value, quizId, userId})
+return res.json(entry);
+ })
+)
 module.exports = router;

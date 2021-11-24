@@ -1,7 +1,7 @@
 const express = require('express')
 const asyncHandler = require('express-async-handler');
 // var Sequelize = require('sequelize');
-const { question, answer } = require('../../db/models');
+const { question, answer, submittedAnswer } = require('../../db/models');
 
 const router = express.Router();
 
@@ -16,5 +16,13 @@ asyncHandler(async (req, res) => {
   })
 )
 
+router.post('/',
+asyncHandler(async (req, res) => {
+  const {userId, questionId, correct} = req.body;
+  const answer = await submittedAnswer.create({userId, questionId, correct})
+  return res.json({})
 
+
+  })
+)
 module.exports = router;

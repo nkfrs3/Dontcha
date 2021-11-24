@@ -85,7 +85,10 @@
 }
 
 .quiz-title {
-  background-color: red;
+  background-color: #554666;
+  color: white;
+  font-size: 2.3rem;
+  padding: 3px 0 5px 3rem;
 }
 .top-tak {
   display: flex;
@@ -127,4 +130,8 @@
 .t-side .ex-s {
   width: 200px;
   text-align: center;
+}
+
+.current-link:not(.app-title) {
+  text-decoration: underline;
 }

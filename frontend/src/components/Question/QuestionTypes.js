@@ -19,7 +19,6 @@ const QuestionTypes = ({setShowTypes, setType, showTypes, setNewQuestions, newQu
     }
     const newQ = {prompt: "", type, answers: [{value: "", correct: false}]}
     setNewQuestions(prev => [...prev, newQ])
-    console.log('adding question', newQ);
     setShowTypes(false)
   }
 

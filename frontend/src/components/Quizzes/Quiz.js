@@ -55,7 +55,7 @@ const handleStart = (e) => {
         <StartQuiz quiz={quizzes[quizId]} questions={questions[quizId]}/>
       }
 
-
+    {quizzes[quizId]?.User &&
     <div className='author-info'>
       <div className='prof-icon'><i class={quizzes[quizId]?.User.profileIcon}></i></div>
       <div className='auth-info'>
@@ -64,6 +64,7 @@ const handleStart = (e) => {
       </div>
       <p className='d8'>{parseDate(quizzes[quizId]?.createdAt)}</p>
     </div>
+    }
     </div>
   )
 }

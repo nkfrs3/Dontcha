@@ -24,19 +24,22 @@ const Navigation = ({isLoaded}) => {
 
   return (
     <div className="nav-bar">
-      <NavLink to="/" className='app-title' activeClassName="home">Dontcha Know</NavLink>
+      <NavLink to="/" className='app-title' activeClassName="current-link">Dontcha Know</NavLink>
 
       { currentUser &&
       <>
-       <NavLink to='/quizzes' activeClassName="quizzes-link">quizzes</NavLink>
-      <NavLink to='/create' activeClassName="home-link">create</NavLink>
+       <NavLink to='/quizzes' activeClassName="current-link">quizzes</NavLink>
+       <NavLink to='/create' activeClassName="current-link">create</NavLink>
       </>
       }
+
+      <div className ="profile-nav">
       {currentUser && <h2 className='welcome'>{currentUser?.username}</h2>}
 
     {!currentUser && <span className='demo nav-link' onMouseUp={handleDemo} >Demo</span>}
 
       {currentUser && <ProfileButton user={currentUser}/>}
+      </div>
     </div>
   )
 }

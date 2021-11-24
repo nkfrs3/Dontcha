@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import McAnswers from './McAnswers'
-import TfAnswers from './TfQuestionCard'
+import TfAnswers from './TfAnswers'
 import MwAnswers from './MwAnswers'
 
 const QuestionCard = ({currentQuestion}) => {

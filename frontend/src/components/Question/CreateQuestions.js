@@ -53,8 +53,8 @@ const CreateQuestions = ({quiz, setCurrentQuiz}) => {
     }
 
     if ( !newQuestions.every(question => question['answers'].find(answer => answer['correct'] == true)) ){
-      window.alert('You must select a correct answer')
-      setErrors('You must provide a correct answer.')
+
+      setErrors('You must provide a correct answer for each question.')
       return;
     }else {
         setErrors("")

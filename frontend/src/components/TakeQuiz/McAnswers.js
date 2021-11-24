@@ -11,10 +11,11 @@ const McAnswers = ({currentQuestion}) => {
   const [answered, setAnswered] = useState(false)
 
   useEffect(()=> {
+    setAnswered(false)
     if (currentQuestion.answered == true){
       setAnswered(true);
     }
-  }, [answered])
+  }, [answered, currentQuestion])
 
   const handleAnswer = (e) => {
 
@@ -26,6 +27,7 @@ const McAnswers = ({currentQuestion}) => {
      currentQuestion.correct = false;
    }
    currentQuestion.answered = true;
+   currentQuestion.chosenAnswer = e.target.value
    setAnswered(true);
   }
 
@@ -38,7 +40,7 @@ const McAnswers = ({currentQuestion}) => {
 
       {currentQuestion.answers.map((ans, i) =>
       <>
-     {!currentQuestion.answered &&
+     {!currentQuestion.answered && !answered &&
       <div className='ans'  >
         <input type = 'radio' value={ans.value} name='answers'
         onChange={e => handleAnswer(e) }
@@ -53,7 +55,7 @@ const McAnswers = ({currentQuestion}) => {
       )}
 
         { currentQuestion.answered && answered &&
-        <Results currentQuestion={currentQuestion} />
+        <Results currentQuestion={currentQuestion} correctAnswer={correctAnswer}/>
       }
     </div>
   )

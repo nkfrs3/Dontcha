@@ -90,7 +90,7 @@ const CreateQuiz = () => {
     }
 
      { !!currentQuiz.title?.length &&
-     <CreateQuestions quiz={currentQuiz} setCurrentQuiz={setCurrentQuiz}/>
+     <CreateQuestions quiz={currentQuiz} setCurrentQuiz={setCurrentQuiz} setDescription={setDescription}/>
      }
 
 

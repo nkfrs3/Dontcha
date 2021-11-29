@@ -32,11 +32,12 @@ asyncHandler(async (req, res) => {
 
   if (description.length > 0){
     const entry = await quiz.create({title, topic, userId, description})
+    return res.json(entry);
     }else {
     const entry = await quiz.create({title, topic, userId})
-
-    }
     return res.json(entry);
+    }
+
    })
   )
 

@@ -9,7 +9,7 @@ import PublishModal from '../Quizzes/PublishModal'
 import { postQuestions } from '../../store/questions'
 import { useHistory } from 'react-router'
 
-const CreateQuestions = ({quiz, setCurrentQuiz}) => {
+const CreateQuestions = ({quiz, setCurrentQuiz ,setDescription}) => {
   const [create, setShowCreate] = useState(false)
   const [showPublishModal, setShowPublishModal] = useState(false);
   const [newQuestions, setNewQuestions] = useState([
@@ -25,6 +25,7 @@ const CreateQuestions = ({quiz, setCurrentQuiz}) => {
   const user = useSelector(state => state.session.user)
 
   const handleRemove = () => {
+    setDescription('')
     setCurrentQuiz({})
   }
 
@@ -44,7 +45,7 @@ const CreateQuestions = ({quiz, setCurrentQuiz}) => {
     }if (  newQuestions.some(x =>  x.prompt.length <= 3 )){
         setErrors('You must enter a valid question.')
         return
-    }if (newQuestions.some(q => q.answers.length <= 1)){
+    }if (newQuestions.some(q => q.answers.length <= 1 && q.type == 'mc')){
       setErrors('You must provide two answers for all questions.')
       return;
     }if ( newQuestions.some(q => q.answers.some(x => x['value'].length < 1))) {

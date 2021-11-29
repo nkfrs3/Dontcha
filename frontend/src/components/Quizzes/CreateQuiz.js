@@ -9,6 +9,7 @@ const CreateQuiz = () => {
   // const [quizToCreate, setQuizToCreate] = useState({})
   const [ quizName, setQuizName] = useState('');
   const [ topic, setTopic] = useState('');
+  const [description, setDescription] = useState('')
 
   const [currentQuiz, setCurrentQuiz] = useState({})
 
@@ -18,15 +19,20 @@ const CreateQuiz = () => {
     { value: 'video games', label: 'Video Games' },
     { value: 'tv-shows', label: 'TV-Shows' },
     { value: 'history', label: 'History' },
+    {value: 'other', label: 'Other'}
   ]
 
 
   const handleSubmit = () => {
 
       if (quizName && topic){
-        console.log('submitting')
+
         const newQuiz = {title: quizName,
-        topic
+        topic,
+        }
+
+        if (description){
+          newQuiz['description'] = description;
         }
         setCurrentQuiz(newQuiz)
         console.log(currentQuiz)
@@ -49,11 +55,13 @@ const CreateQuiz = () => {
       <>
       <button className='top' onClick={handleSubmit}>Create</button>
       <div className="create-quiz-form">
+        <div className='topic-name'>
         <label className="topics-menu">
           Topic
           <Select options={options} className="topics-menu"
           required
           onChange={e => setTopic(e.value) }
+          className='topics-drop'
           />
         </label>
         <label className="quiz-name-label">
@@ -65,6 +73,17 @@ const CreateQuiz = () => {
           required
           onChange={e => setQuizName(e.target.value)}
           ></input>
+        </ label >
+        </div>
+        <label className="desc">
+          Description
+          <textarea
+          placeholder="description - optional"
+          value={description}
+          max="400"
+          onChange={e => setDescription(e.target.value)}
+          className='desc-input'
+          ></textarea>
         </ label >
         </div>
         </>

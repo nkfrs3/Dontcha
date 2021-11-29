@@ -27,8 +27,8 @@ const Question = ({question, i, setNewQuestions, newQuestions, setCurrentQuestio
   return (
     <>
     <div className ='questions-added' onClick={handleSetQ} key={i}>
-      <div className ="type-counter">
-        <span>
+      <div className ="type-counter" style={{backgroundColor: question.type == 'mc' ? 'cyan' : question.type == 'tf' ? 'tan' : 'rgb(223, 153, 164)'}} >
+        <span >
         <i className={logo[question.type]}></i>
         </span>
         <span>{i + 1}</span>

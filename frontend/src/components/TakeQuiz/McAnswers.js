@@ -20,6 +20,10 @@ const McAnswers = ({currentQuestion, setQuizScore, setQuizComplete, quizScore, n
     }
   }, [answered, currentQuestion])
 
+  useEffect(() => {
+    setCorrectAnswer(currentQuestion.answers.find(ans => ans.correct == true))
+
+  }, [currentQuestion])
 
   const handleAnswer = (e) => {
     numAnswered.current++;
@@ -37,9 +41,9 @@ const McAnswers = ({currentQuestion, setQuizScore, setQuizComplete, quizScore, n
    setAnswered(true);
   }
 
-  useEffect(() => {
-    console.log(currentQuestion)
-  }, [currentQuestion])
+  // useEffect(() => {
+  //   console.log(currentQuestion)
+  // }, [currentQuestion])
   return (
     <div className='ans-container' ref={radioInput}>
 

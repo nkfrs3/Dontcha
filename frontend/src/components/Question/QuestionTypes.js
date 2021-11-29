@@ -26,7 +26,7 @@ const QuestionTypes = ({setShowTypes, setType, showTypes, setNewQuestions, newQu
     <div className="types-modal" onClick={e => e.stopPropagation()}>
       <h2>Question Types</h2>
 
-       <div className="line"></div>
+       <div className="line1"></div>
 
       <div className='topic-options'>
         <span

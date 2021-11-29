@@ -28,10 +28,16 @@ asyncHandler(async (req, res) => {
 
   router.post('/',
   asyncHandler(async (req, res) => {
-  const {title, topic, userId} = req.body;
+  const {title, topic, userId, description} = req.body;
 
-  const entry = await quiz.create({title, topic, userId})
-  return res.json(entry);
+  if (description.length > 0){
+    const entry = await quiz.create({title, topic, userId, description})
+    return res.json(entry);
+    }else {
+    const entry = await quiz.create({title, topic, userId})
+    return res.json(entry);
+    }
+
    })
   )
 

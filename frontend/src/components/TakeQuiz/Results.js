@@ -1,11 +1,8 @@
 import React, {useEffect} from 'react'
+import QuestionStats from './QuestionStats'
 
 const Results = ({currentQuestion, correctAnswer}) => {
 
-  // useEffect(()=> {
-  //   console.log(currentQuestion)
-  //   console.log(correctAnswer.value)
-  // }, [currentQuestion])
 
   return (
     <div className='results' >
@@ -24,7 +21,7 @@ const Results = ({currentQuestion, correctAnswer}) => {
       <div>Correct Answer: {correctAnswer.value == 't' ? "True" : correctAnswer.value === 'f' ? "False" : correctAnswer.value }</div>
       </div>
       }
-
+      <QuestionStats currentQuestion={currentQuestion}/>
     </div>
   )
 }

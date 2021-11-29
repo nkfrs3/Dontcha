@@ -17,8 +17,20 @@ const QuestionTypes = ({setShowTypes, setType, showTypes, setNewQuestions, newQu
       window.alert("sorry, no more than 10 questions aloud")
       return;
     }
-    const newQ = {prompt: "", type, answers: [{value: "", correct: false}]}
-    setNewQuestions(prev => [...prev, newQ])
+    if (type == 'mc') {
+      const newQ = {prompt: "", type, answers: [{value: "", correct: false}]}
+      setNewQuestions(prev => [...prev, newQ])
+    }
+    else if (type == 'tf') {
+      const newQ = {prompt: "", type, answers: [{value: "t", correct: false}, {value: "f", correct: false}]}
+      setNewQuestions(prev => [...prev, newQ])
+    }else if (type == 'mw') {
+      {
+        const newQ = {prompt: "", type, answers: [{value: "", correct: true}]}
+        setNewQuestions(prev => [...prev, newQ])
+      }
+    }
+
     setShowTypes(false)
   }
 
@@ -26,7 +38,7 @@ const QuestionTypes = ({setShowTypes, setType, showTypes, setNewQuestions, newQu
     <div className="types-modal" onClick={e => e.stopPropagation()}>
       <h2>Question Types</h2>
 
-       <div className="line"></div>
+       <div className="line1"></div>
 
       <div className='topic-options'>
         <span

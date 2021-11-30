@@ -175,3 +175,8 @@
 .rec-a {
   flex-basis: 50%;
 }
+
+.no-act {
+  text-align: end;
+  margin-right: 1.5rem;
+}

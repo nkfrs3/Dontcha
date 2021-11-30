@@ -35,6 +35,11 @@ const handleStart = (e) => {
   setStarted(true)
   // setCurrentQuestion(questions[quizId][0])
 }
+
+const visitProfile = (id) => {
+  history.push(`/profile/${id}`);
+}
+
   const parseDate = (date) => {
     if (!date) return;
     const splitDate = date.split('-')
@@ -47,7 +52,8 @@ const handleStart = (e) => {
 
   return (
     <div>
-      <h2 className='quiz-title'>{quizzes[quizId]?.title}</h2>
+      <h2 className='quiz-title'>{quizzes[quizId]?.title} {'-'} <span>{quizzes[quizId]?.description}</span></h2>
+
     <div className="start-btn-cont">
      {!started && <button onClick={e => handleStart(e)}>START</button>}
      </div>
@@ -56,8 +62,8 @@ const handleStart = (e) => {
       }
 
     {quizzes[quizId]?.User &&
-    <div className='author-info'>
-      <div className='prof-icon'><i class={quizzes[quizId]?.User.profileIcon}></i></div>
+    <div className='author-info' onClick={()=> visitProfile(quizzes[quizId]?.User.id)}>
+      <div className='prof-icon' ><i class={quizzes[quizId]?.User.profileIcon}></i></div>
       <div className='auth-info'>
         <p>created by:</p>
         <h5>{quizzes[quizId]?.User.username}</h5>

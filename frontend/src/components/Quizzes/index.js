@@ -36,6 +36,7 @@ const Quizzes = () => {
     { value: 'video games', label: 'Video Games' },
     { value: 'tv-shows', label: 'TV-Shows' },
     { value: 'history', label: 'History' },
+    { value: 'other', label: 'Other' }
   ]
 
 

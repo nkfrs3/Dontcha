@@ -38,7 +38,7 @@ const RecentActivity = ({userId}) => {
           )}
         </table>
 
-         : <div>No Recent Activity</div> }
+         : <div className='no-act'>No Recent Activity</div> }
 
 
     </div>

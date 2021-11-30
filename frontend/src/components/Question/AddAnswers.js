@@ -149,7 +149,7 @@ const handleChange = (e) => {
         { newQuestions[questionIndex].type == 'tf' &&
            <>
            <Select
-               className="correct-menu"
+               className="correct-menu tf-correct"
                options={trueFalse}
                required
                onChange={e => handleTfCorrect(e)}

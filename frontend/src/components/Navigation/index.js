@@ -36,7 +36,8 @@ const Navigation = ({isLoaded}) => {
       <div className ="profile-nav">
       {currentUser && <h2 className='welcome'>{currentUser?.username}</h2>}
 
-    {!currentUser && <span className='demo nav-link' onMouseUp={handleDemo} >Demo</span>}
+    {!currentUser && <span className='demo nav-link' onMouseUp={handleDemo}
+     >Demo</span>}
 
       {currentUser && <ProfileButton user={currentUser}/>}
       </div>

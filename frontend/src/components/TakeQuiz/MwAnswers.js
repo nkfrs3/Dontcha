@@ -23,6 +23,7 @@ const MwAnswers = ({currentQuestion, setQuizScore, setQuizComplete, quizScore, n
 
 
     const handleAnswer = (answer) => {
+      if (answer.length == 0){return}
       numAnswered.current++;
       const isCorrect = answer.toLowerCase() == correctAnswer.value.toLowerCase();
      if (isCorrect){

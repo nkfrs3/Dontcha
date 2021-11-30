@@ -2,7 +2,7 @@
   display:grid;
   grid-template-columns: 20px repeat(4, 1fr) 20px;
   grid-template-rows: repeat(8, 1fr);
-  /* height: 100%; */
+  min-height: 500px;
   padding-top: 4.5rem;
   overflow-y:auto;
 
@@ -134,4 +134,17 @@
 
 .current-link:not(.app-title) {
   text-decoration: underline;
+}
+
+.author-info {
+  cursor: pointer;
+}
+.quiz-title span {
+  font-size: 1rem;
+}
+.quiz-title {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  overflow: hidden;
 }

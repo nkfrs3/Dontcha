@@ -55,3 +55,32 @@
   gap: 0.75rem;
   justify-content: center;
 } */
+
+.demo {
+  cursor: pointer;
+}
+
+#footer {
+  background-color: #554666;
+  height: 50px;
+  display: flex;
+  padding: 0 1rem;
+  align-items: center;
+}
+
+#footer p {
+  color: white;
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+#footer a[href*='github'] {
+  margin-left: 5rem;
+  margin-right: 1rem;
+}
+
+#footer a {
+  font-size: 2rem;
+  color: black;
+
+}

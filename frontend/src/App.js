@@ -30,7 +30,7 @@ function App () {
      }
      {user &&
       <Switch>
-      <Route exact path = "/quizzes">
+      <Route exact path = {["/", "/quizzes"]}>
         <Quizzes />
       </Route>
       <Route exact path ="/quizzes/:id">

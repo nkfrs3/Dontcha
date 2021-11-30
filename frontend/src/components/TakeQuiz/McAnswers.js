@@ -37,8 +37,8 @@ const McAnswers = ({currentQuestion, setQuizScore, setQuizComplete, quizScore, n
    currentQuestion.chosenAnswer = e.target.value
 
    //to do: add e.target.value to the column value on the submitted answers table
-   dispatch(postAnswer(user.id, currentQuestion.id, currentQuestion.correct, e.target.value))
-   setAnswered(true);
+   dispatch(postAnswer(user.id, currentQuestion.id, currentQuestion.correct, e.target.value)).then(()=> setAnswered(true))
+
   }
 
   // useEffect(() => {

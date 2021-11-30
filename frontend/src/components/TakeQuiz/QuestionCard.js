@@ -42,7 +42,7 @@ const QuestionCard = ({currentQuestion, quiz}) => {
   {  !quizComplete ?
     <div className='question-card'>
       <h2>{currentQuestion?.prompt}</h2>
-
+      {/* {numAnswered.current} */}
       <div className='answers-container'>
       {handleQuestionType(currentQuestion.type)}
 

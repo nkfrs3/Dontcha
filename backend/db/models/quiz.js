@@ -31,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
     quiz.belongsTo(models.User, {foreignKey: "id"})
     quiz.hasMany(models.question, {foreignKey: "quizId", onDelete: 'cascade', hooks:true} )
     quiz.hasMany(models.score, {foreignKey: "quizId", onDelete: 'cascade', hooks:true})
-    quiz.hasMany(models.review, {foreignKey: "quizId", onDelete: 'cascade', hooks:true})
+    // quiz.hasMany(models.review, {foreignKey: "quizId", onDelete: 'cascade', hooks:true})
 
   };
   return quiz;

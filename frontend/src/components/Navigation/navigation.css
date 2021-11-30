@@ -10,6 +10,7 @@
 .nav-bar  a {
   font-family: 'Outfit', sans-serif;
   font-size: 1.5rem;
+  color: #554666;
 }
 
 .profile-nav{
@@ -28,6 +29,7 @@
   position: absolute;
   right: 0;
   top: 3rem;
+  z-index: 1000;
 
 }
 .profile-dropdown {
@@ -47,3 +49,9 @@
 #profile {
   border-bottom: 1px solid black;
 }
+
+/* .recent-att {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+} */

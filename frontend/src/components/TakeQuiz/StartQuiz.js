@@ -9,7 +9,6 @@ const [currentQuestion, setCurrentQuestion] = useState(questions[0])
 const [index, setIndex] = useState(0)
 
 useEffect(() => {
-  console.log(currentQuestion, '!!!!!')
 }, [currentQuestion])
 
 const handleNumber = (i) => {

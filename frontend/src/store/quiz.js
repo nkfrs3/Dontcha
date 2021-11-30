@@ -3,6 +3,8 @@ import { csrfFetch } from "./csrf";
 const SET_QUIZZES = 'genres/setQuizzes';
 const ADD_QUIZ = 'quizzes/addQuiz'
 const SET_MINE = 'quizzes/setMine'
+const DELETE_QUIZ = 'quizzes/delete'
+const SET_THEIRS = 'quizzes/setTheirs'
 
 const setQuizzes = (quizzes) => ({
   type: SET_QUIZZES,
@@ -13,11 +15,20 @@ const setMine = (quizzes) => ({
   quizzes
 })
 
+const setTheirs = (quizzes) => ({
+  type: SET_THEIRS,
+  quizzes
+})
+
 const addQuiz = (quiz) => ({
   type: ADD_QUIZ,
   quiz
 });
 
+const afterDelete = (id) => ({
+  type: DELETE_QUIZ,
+  id
+})
 
 export const getQuizzes = () => async(dispatch) => {
   const data = await fetch('/api/quizzes');
@@ -36,6 +47,14 @@ export const getMyQuizzes = (id) => async(dispatch) => {
 
 }
 
+export const getUserQuizzes = (id) => async(dispatch) => {
+  const data = await fetch(`/api/quizzes/theirs/${id}`);
+
+  if(data.ok){
+    const quizzes = await data.json();
+    dispatch(setTheirs(quizzes))
+  }
+}
 
 export const postQuiz = (payload) => async(dispatch) => {
 
@@ -52,7 +71,18 @@ export const postQuiz = (payload) => async(dispatch) => {
 
 }
 
-const initialState = {all: {}, mine: {}};
+
+export const deleteQuiz = (id) => async(dispatch) => {
+  const response = await csrfFetch(`/api/quizzes/${id}`, {
+    method: "DELETE"
+  });
+  if (response.ok){
+    dispatch(afterDelete(id))
+  }
+
+}
+
+const initialState = {all: {}, mine: {}, theirs: {}};
 
 const reducer = (state = initialState, action) => {
   switch(action.type) {
@@ -70,6 +100,18 @@ const reducer = (state = initialState, action) => {
         const newOb = {...state}
         newOb.mine = action.quizzes
         return newOb;
+        case SET_THEIRS:
+          const newObj = {...state}
+          newObj.theirs = action.quizzes
+          return newObj;
+      case DELETE_QUIZ:
+        const c = {...state}
+        const quizToDeleteIndex = c.mine.findIndex(quiz => quiz.id == action.id)
+        if (quizToDeleteIndex !== -1){
+         c.mine = c.mine.slice(0, quizToDeleteIndex).concat(c.mine.slice(quizToDeleteIndex + 1));
+        }
+        return c;
+
       default:
          return state;
       }

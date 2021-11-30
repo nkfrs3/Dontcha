@@ -1,7 +1,8 @@
 const express = require('express')
 const asyncHandler = require('express-async-handler');
 var Sequelize = require('sequelize');
-const { User, quiz, question, answer, score } = require('../../db/models');
+const { User, quiz, question, answer, score} = require('../../db/models');
+
 
 const router = express.Router();
 
@@ -69,5 +70,43 @@ const {value, quizId, userId} = req.body;
 const entry = await score.create({value, quizId, userId})
 return res.json(entry);
  })
+)
+
+router.delete('/:id',
+asyncHandler(async (req, res) => {
+const {id} = req.params;
+
+const deletedQuiz = await quiz.findByPk(id);
+  deletedQuiz.destroy()
+  return res.json({});
+})
+)
+
+router.get('/theirs/:id',
+asyncHandler(async (req, res) => {
+  const {id} = req.params;
+  const quizzes = await quiz.findAll({
+    where: {
+      userId: id
+    },
+      order: [["updatedAt", 'DESC']],
+    })
+    return res.json(quizzes)
+  })
+)
+
+router.get('/scores/:id',
+asyncHandler(async (req, res) => {
+  const {id} = req.params;
+
+  const recentActivity = await score.findAll({
+    where: {userId: id},
+    include: {
+      model: quiz, attributes: ['title', 'topic']
+    },
+    order: [["updatedAt", 'DESC']]
+  })
+  return res.json(recentActivity)
+  })
 )
 module.exports = router;

@@ -91,7 +91,7 @@ const handleChange = (e) => {
       <span className='num'>#{questionIndex + 1}</span>
       <div style={{display: 'none'}}>{count}</div>
 
-     { newQuestions[questionIndex].type == 'mc' &&
+     { newQuestions[questionIndex]?.type == 'mc' &&
       <>
         <Select
             className="correct-menu"
